@@ -13,7 +13,7 @@
  */
 Database::Database() {
     connection = mysql_init(NULL);
-    if (!mysql_real_connect(connection, "localhost","root","mysql","quan_ly_khach_san", 0, NULL, 0)) {
+    if (!mysql_real_connect(connection, "sql.freedb.tech","freedb_vieanhng","83y$EzfEFET6qW8","freedb_quan_ly_khach_san", 0, NULL, 0)) {
         cout << "Error connecting to database: " << mysql_error(connection) << endl;
     }
 }

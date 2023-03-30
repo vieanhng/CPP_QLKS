@@ -7,8 +7,7 @@
 
 
 class KhachHang {
-private:
-    string ten;
+
 };
 
 
