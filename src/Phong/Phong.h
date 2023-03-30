@@ -44,9 +44,15 @@ public:
 
     void setGiaPhong(int giaPhong);
 
-    int getTinhTrangPhong() const;
+    std::string getTinhTrangPhong() const;
+
+    std::string getTinhTrangPhong(int tinh_trang) const;
 
     void setTinhTrangPhong(int tinhTrangPhong);
+
+    void loadPhong(int maPhong);
+
+    void showFullTable();
 };
 
 

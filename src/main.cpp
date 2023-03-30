@@ -5,7 +5,6 @@
 using namespace std;
 int main(int argc, char** argv) {
     Phong p1;
-    p1.taoPhong();
-
+    p1.xoaPhong();
     return 0;
 }
