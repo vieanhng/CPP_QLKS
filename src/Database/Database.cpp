@@ -11,9 +11,9 @@
  * @param password
  * @param database
  */
-Database::Database(const char* host, const char* user, const char* password, const char* database) {
+Database::Database() {
     connection = mysql_init(NULL);
-    if (!mysql_real_connect(connection, host, user, password, database, 0, NULL, 0)) {
+    if (!mysql_real_connect(connection, "localhost","root","mysql","quan_ly_khach_san", 0, NULL, 0)) {
         cout << "Error connecting to database: " << mysql_error(connection) << endl;
     }
 }

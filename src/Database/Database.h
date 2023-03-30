@@ -14,7 +14,7 @@ class Database {
 private:
     MYSQL* connection;
 public:
-    Database(const char* host, const char* user, const char* password, const char* database);
+    Database();
 
     ~Database();
 
