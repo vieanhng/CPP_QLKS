@@ -19,14 +19,14 @@ private:
     int tinh_trang_phong;
     std::stringstream ss;
 public:
+    Phong(string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
+    Phong(){};
 
-    bool taoPhong();
+    void init();
 
-    void suaPhong();
+
 
     void hienThiThongTin();
-
-    void xoaPhong();
 
     int getMaPhong() const;
 
@@ -44,15 +44,9 @@ public:
 
     void setGiaPhong(int giaPhong);
 
-    std::string getTinhTrangPhong() const;
-
-    std::string getTinhTrangPhong(int tinh_trang) const;
+    int getTinhTrangPhong() const;
 
     void setTinhTrangPhong(int tinhTrangPhong);
-
-    void loadPhong(int maPhong);
-
-    void showFullTable();
 };
 
 
