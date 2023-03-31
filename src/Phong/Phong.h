@@ -13,12 +13,12 @@ using namespace std;
 class Phong {
 private:
     int ma_phong;
-    std::string loai_phong;
+    string loai_phong;
     int so_phong;
     int gia_phong;
     int tinh_trang_phong;
 public:
-    Phong(std::string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
+    Phong(string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
     Phong(){};
 
     void init();
@@ -29,9 +29,9 @@ public:
 
     void setMaPhong(int maPhong);
 
-    const std::string &getLoaiPhong() const;
+    const string &getLoaiPhong() const;
 
-    void setLoaiPhong(const std::string &loaiPhong);
+    void setLoaiPhong(const string &loaiPhong);
 
     int getSoPhong() const;
 
