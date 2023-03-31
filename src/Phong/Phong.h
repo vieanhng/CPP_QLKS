@@ -6,35 +6,32 @@
 #define CPP_QLKS_PHONG_H
 #include <iostream>
 #include "sstream"
-#include "../Database/Database.h"
 #include "../Utils/Utils.h"
 
+using namespace std;
 
-class Phong: protected Database{
+class Phong {
 private:
     int ma_phong;
     std::string loai_phong;
     int so_phong;
     int gia_phong;
     int tinh_trang_phong;
-    std::stringstream ss;
 public:
-    Phong(string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
+    Phong(std::string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
     Phong(){};
 
     void init();
-
-
-
+    
     void hienThiThongTin();
 
     int getMaPhong() const;
 
     void setMaPhong(int maPhong);
 
-    const string &getLoaiPhong() const;
+    const std::string &getLoaiPhong() const;
 
-    void setLoaiPhong(const string &loaiPhong);
+    void setLoaiPhong(const std::string &loaiPhong);
 
     int getSoPhong() const;
 
