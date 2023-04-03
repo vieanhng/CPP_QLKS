@@ -7,11 +7,14 @@
 #include "../Database/Database.h"
 #include "sstream"
 #include "../Utils/Utils.h"
+#include <iostream>
+
 
 
 class QLBase : public Database{
 protected:
     std::stringstream ss;
+
 };
 
 

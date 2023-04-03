@@ -18,12 +18,12 @@ const std::string getString(const std::string& msg, int maxLen)
 
     while (s.empty())
     {
-        std::cout << "No value.Try again: ";
+        std::cout << "Vui long nhap gia tri: ";
         std::getline(std::cin, s);
     }
 
     while (s.size() > maxLen) {
-        printf("Value should be equal or lower than %d.Try again: ", maxLen);
+        printf("Qua dai vui long nhap duoi %d ki tu: ", maxLen);
         std::getline(std::cin, s);
     }
     return s;
@@ -39,6 +39,7 @@ int getNumber(const std::string& msg)
     std::cout << msg;
     while (!(std::cin >> number))
     {
+        std::cout << "Vui long nhap lai:";
         std::cin.clear();
         std::cin.ignore(INT_MAX, '\n');
     }

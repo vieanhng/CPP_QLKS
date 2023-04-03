@@ -7,12 +7,12 @@
 Phong::Phong(string loaiPhong, int soPhong, int giaPhong, int tinhtrangPhong):
 loai_phong(loaiPhong),so_phong(soPhong),gia_phong(giaPhong),tinh_trang_phong(tinhtrangPhong) {}
 
-void Phong::init() {
+void Phong::nhap() {
     {
         this->loai_phong = getString("Nhap loai phong:", 20);
         this->so_phong = getNumber("Nhap so phong: ");
         this->gia_phong = getNumber("Nhap gia phong: ");
-        this->tinh_trang_phong = getNumber("Nhap loai phong: ");
+        this->tinh_trang_phong = getNumber("Nhap tinh trang phong(1:Con, 0:Het): ");
     }
 }
 

@@ -5,18 +5,21 @@
 #ifndef CPP_QLKS_QLPHONG_H
 #define CPP_QLKS_QLPHONG_H
 
-#include <ostream>
+#include <iostream>
 #include "../Phong.h"
 #include "../../QLBase/QLBase.h"
 
-class QLPhong : public QLBase {
+class QLPhong : protected QLBase {
 public:
     bool taoPhong();
-    void xoaPhong(int roomNumber);
+    void xoaPhong();
+    void suaPhong();
     Phong* loadPhong(int roomNumber);
     std::vector<Phong*> getAllRooms();
     void danhSachPhong();
     string tinhTrangPhong(int tinhTrangPhong);
+    void capNhatPhong(Phong* p);
+    bool existPhong(int ma_phong);
 };
 
 

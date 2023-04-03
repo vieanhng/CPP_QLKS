@@ -5,7 +5,6 @@
 #ifndef CPP_QLKS_PHONG_H
 #define CPP_QLKS_PHONG_H
 #include <iostream>
-#include "sstream"
 #include "../Utils/Utils.h"
 
 using namespace std;
@@ -21,7 +20,7 @@ public:
     Phong(string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
     Phong(){};
 
-    void init();
+    void nhap();
     
     void hienThiThongTin();
 
