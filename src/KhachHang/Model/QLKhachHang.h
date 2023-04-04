@@ -15,6 +15,7 @@ public:
     void suaKhachHang();
     void dsKhachHang();
     KhachHang* loadKhachHang(int maKh);
+    void capNhatKhachHang(KhachHang* kh);
     bool existKhachHang(int ma_kh);
 
 };
