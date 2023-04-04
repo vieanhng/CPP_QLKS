@@ -40,7 +40,7 @@ void QLKhachHang::xoaKhachHang() {
     kh = loadKhachHang(khach_hang_can_xoa);
     cout << "Ban chac chan muon xoa khach hang:\n";
     kh->hienThiThongTin();
-    cout << "1. Xoa\n"
+    cout << "\n1. Xoa\n"
             "2. Huy\n";
     int choice = getNumber("Lua chon: ");
     switch (choice) {
@@ -68,7 +68,7 @@ void QLKhachHang::suaKhachHang() {
         kh = loadKhachHang(khach_hang_can_sua);
         do {
             kh->hienThiThongTin();
-            cout << "Chon truong muon sua:\n"
+            cout <<"\n Chon truong muon sua:\n"
                     "1.Ten khach hang\n"
                     "2.Dia chi\n"
                     "3.So dien thoai\n"
