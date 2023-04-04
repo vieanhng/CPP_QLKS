@@ -6,6 +6,10 @@
 
 int main(int argc, char** argv) {
     QLKhachHang kh;
-    kh.dsKhachHang();
+   kh.taoKhachHang();
+   kh.suaKhachHang();
+   kh.xoaKhachHang();
+   kh.dsKhachHang();
+
     return 0;
 }

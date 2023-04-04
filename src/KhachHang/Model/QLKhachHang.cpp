@@ -126,7 +126,7 @@ void QLKhachHang::dsKhachHang() {
 KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     KhachHang* khachhang = NULL;
     ss.str("");
-    ss << "SELECT * FROM khachhang WHERE ma_kh=" << maKh;
+    ss << "SELECT * FROM khach_hang WHERE ma_kh=" << maKh;
     std::string query = ss.str();
 
     MYSQL_RES* res = exec_query(query.c_str());
@@ -148,7 +148,7 @@ void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
     ss.str("");
     ss << "UPDATE khach_hang SET ten_kh = '" << kh->getTenKh() << "', "
        << "dia_chi = '" << kh->getDiaChi() << "', "
-       << "so_dien_thoai = '" << kh->getSdt() << "', "
+       << "sdt = '" << kh->getSdt() << "', "
        << "email = '" << kh->getEmail() << "' "
        << "WHERE ma_kh = " << kh->getMaKh() << ";";
     string updateKhachHangQuery = ss.str();
