@@ -54,10 +54,17 @@ void KhachHang::setEmail(const std::string &email) {
 }
 
 void KhachHang::hienThiThongTin() {
-
+    std::cout << "Thong tin khach hang";
+    std::cout <<"\n----------------------";
+    std::cout <<"\nTen:"<<getTenKh();
+    std::cout <<"\nDia chi:"<<getDiaChi();
+    std::cout <<"\nSo dien thoai:"<<getSdt();
+    std::cout<<"\nEmail:"<<getEmail();
 }
-
 void KhachHang::nhap() {
-
+    this->ten_kh = getString("Nhap ten khach hang:",50);
+    this->dia_chi = getString("Nhap dia chi:",50);
+    this->email = getString("Nhap email:",100);
+    this->sdt = getString("Nhap so dien thoai:",20);
 }
 
