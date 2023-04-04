@@ -9,6 +9,7 @@
 #include "../../QLBase/QLBase.h"
 
 class QLKhachHang : protected QLBase {
+public:
     void taoKhachHang();
     void xoaKhachHang();
     void suaKhachHang();

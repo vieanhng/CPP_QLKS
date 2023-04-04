@@ -9,6 +9,7 @@
 #include "../../QLBase/QLBase.h"
 
 class QLDatPhong: protected QLBase{
+public:
     void taoDatPhong();
     void xoaDatPhong();
     void suaDatPhong();

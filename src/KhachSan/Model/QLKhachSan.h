@@ -9,6 +9,7 @@
 #include "../../QLBase/QLBase.h"
 
 class QLKhachSan : protected QLBase{
+public:
     void capNhatThongTin();
 };
 
