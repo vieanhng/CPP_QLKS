@@ -7,30 +7,30 @@
 #include <iostream>
 #include "../Utils/Utils.h"
 
-using namespace std;
 
 class Phong {
 private:
     int ma_phong;
-    string loai_phong;
+    std::string loai_phong;
     int so_phong;
     int gia_phong;
     int tinh_trang_phong;
 public:
-    Phong(string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
+    Phong(int maPhong, std::string loaiPhong,int soPhong,int giaPhong,int tinhtrangPhong);
     Phong(){};
 
     void nhap();
-    
+
+
     void hienThiThongTin();
 
     int getMaPhong() const;
 
     void setMaPhong(int maPhong);
 
-    const string &getLoaiPhong() const;
+    const std::string &getLoaiPhong() const;
 
-    void setLoaiPhong(const string &loaiPhong);
+    void setLoaiPhong(const std::string &loaiPhong);
 
     int getSoPhong() const;
 

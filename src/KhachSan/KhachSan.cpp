@@ -7,10 +7,10 @@
 int KhachSan::ma_ks = 1;
 
 KhachSan::KhachSan(
-        const string &tenKs,
-        const string &diaChi,
-        const string &sdt,
-        const string &email) :
+        const std::string &tenKs,
+        const std::string &diaChi,
+        const std::string &sdt,
+        const std::string &email) :
         ten_ks(tenKs),
         dia_chi(diaChi),
         sdt(sdt),
@@ -27,34 +27,34 @@ int KhachSan::getMaKs() {
     return ma_ks;
 }
 
-const string &KhachSan::getTenKs() const {
+const std::string &KhachSan::getTenKs() const {
     return ten_ks;
 }
 
-void KhachSan::setTenKs(const string &tenKs) {
+void KhachSan::setTenKs(const std::string &tenKs) {
     ten_ks = tenKs;
 }
 
-const string &KhachSan::getDiaChi() const {
+const std::string &KhachSan::getDiaChi() const {
     return dia_chi;
 }
 
-void KhachSan::setDiaChi(const string &diaChi) {
+void KhachSan::setDiaChi(const std::string &diaChi) {
     dia_chi = diaChi;
 }
 
-const string &KhachSan::getSdt() const {
+const std::string &KhachSan::getSdt() const {
     return sdt;
 }
 
-void KhachSan::setSdt(const string &sdt) {
+void KhachSan::setSdt(const std::string &sdt) {
     KhachSan::sdt = sdt;
 }
 
-const string &KhachSan::getEmail() const {
+const std::string &KhachSan::getEmail() const {
     return email;
 }
 
-void KhachSan::setEmail(const string &email) {
+void KhachSan::setEmail(const std::string &email) {
     KhachSan::email = email;
 }

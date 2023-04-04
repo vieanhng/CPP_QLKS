@@ -7,18 +7,17 @@
 #include <iostream>
 #include "../Utils/Utils.h"
 
-using namespace std;
 class KhachSan {
 private:
     static int ma_ks;
-    string ten_ks;
-    string dia_chi;
-    string sdt;
-    string email;
+    std::string ten_ks;
+    std::string dia_chi;
+    std::string sdt;
+    std::string email;
 public:
     KhachSan();
 
-    KhachSan(const string &tenKs, const string &diaChi, const string &sdt, const string &email);
+    KhachSan(const std::string &tenKs, const std::string &diaChi, const std::string &sdt, const std::string &email);
 
     virtual ~KhachSan();
 
@@ -26,21 +25,21 @@ public:
 
     static void setMaKs(int maKs);
 
-    const string &getTenKs() const;
+    const std::string &getTenKs() const;
 
-    void setTenKs(const string &tenKs);
+    void setTenKs(const std::string &tenKs);
 
-    const string &getDiaChi() const;
+    const std::string &getDiaChi() const;
 
-    void setDiaChi(const string &diaChi);
+    void setDiaChi(const std::string &diaChi);
 
-    const string &getSdt() const;
+    const std::string &getSdt() const;
 
-    void setSdt(const string &sdt);
+    void setSdt(const std::string &sdt);
 
-    const string &getEmail() const;
+    const std::string &getEmail() const;
 
-    void setEmail(const string &email);
+    void setEmail(const std::string &email);
 };
 
 

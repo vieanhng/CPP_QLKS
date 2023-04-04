@@ -4,8 +4,8 @@
 
 #include "Phong.h"
 
-Phong::Phong(string loaiPhong, int soPhong, int giaPhong, int tinhtrangPhong):
-loai_phong(loaiPhong),so_phong(soPhong),gia_phong(giaPhong),tinh_trang_phong(tinhtrangPhong) {}
+Phong::Phong(int maPhong, std::string loaiPhong, int soPhong, int giaPhong, int tinhtrangPhong):
+ma_phong(maPhong),loai_phong(loaiPhong),so_phong(soPhong),gia_phong(giaPhong),tinh_trang_phong(tinhtrangPhong) {}
 
 void Phong::nhap() {
     {
@@ -24,11 +24,11 @@ void Phong::setMaPhong(int maPhong) {
     ma_phong = maPhong;
 }
 
-const string &Phong::getLoaiPhong() const {
+const std::string &Phong::getLoaiPhong() const {
     return loai_phong;
 }
 
-void Phong::setLoaiPhong(const string &loaiPhong) {
+void Phong::setLoaiPhong(const std::string &loaiPhong) {
     this->loai_phong = loaiPhong;
 }
 
@@ -66,5 +66,6 @@ void Phong::hienThiThongTin() {
     std::cout << "\nTinh trang phong: " << getTinhTrangPhong();
     std::cout << "\n====================================\n";
 }
+
 
 

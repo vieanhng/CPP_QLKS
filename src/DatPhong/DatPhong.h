@@ -7,14 +7,13 @@
 #include <iostream>
 #include "../Utils/Utils.h"
 
-using namespace std;
 class DatPhong {
 private:
     int ma_dat_phong;
-    string thoi_gian_dat;
-    string thoi_gian_nhan;
-    string thoi_gian_tra;
-    string tinh_trang_dat_phong;
+    std::string thoi_gian_dat;
+    std::string thoi_gian_nhan;
+    std::string thoi_gian_tra;
+    std::string tinh_trang_dat_phong;
     int ma_phong;
     int ma_kh;
 public:
@@ -22,28 +21,28 @@ public:
 
     virtual ~DatPhong();
 
-    DatPhong(int maDatPhong, const string &thoiGianDat, const string &thoiGianNhan, const string &thoiGianTra,
-             const string &tinhTrangDatPhong, int maPhong, int maKh);
+    DatPhong(int maDatPhong, const std::string &thoiGianDat, const std::string &thoiGianNhan, const std::string &thoiGianTra,
+             const std::string &tinhTrangDatPhong, int maPhong, int maKh);
 
     int getMaDatPhong() const;
 
     void setMaDatPhong(int maDatPhong);
 
-    const string &getThoiGianDat() const;
+    const std::string &getThoiGianDat() const;
 
-    void setThoiGianDat(const string &thoiGianDat);
+    void setThoiGianDat(const std::string &thoiGianDat);
 
-    const string &getThoiGianNhan() const;
+    const std::string &getThoiGianNhan() const;
 
-    void setThoiGianNhan(const string &thoiGianNhan);
+    void setThoiGianNhan(const std::string &thoiGianNhan);
 
-    const string &getThoiGianTra() const;
+    const std::string &getThoiGianTra() const;
 
-    void setThoiGianTra(const string &thoiGianTra);
+    void setThoiGianTra(const std::string &thoiGianTra);
 
-    const string &getTinhTrangDatPhong() const;
+    const std::string &getTinhTrangDatPhong() const;
 
-    void setTinhTrangDatPhong(const string &tinhTrangDatPhong);
+    void setTinhTrangDatPhong(const std::string &tinhTrangDatPhong);
 
     int getMaPhong() const;
 

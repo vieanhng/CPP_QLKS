@@ -12,10 +12,10 @@ DatPhong::~DatPhong() {
 
 DatPhong::DatPhong(
         int maDatPhong,
-        const string &thoiGianDat,
-        const string &thoiGianNhan,
-        const string &thoiGianTra,
-        const string &tinhTrangDatPhong,
+        const std::string &thoiGianDat,
+        const std::string &thoiGianNhan,
+        const std::string &thoiGianTra,
+        const std::string &tinhTrangDatPhong,
         int maPhong,
         int maKh
         ) :
@@ -36,35 +36,35 @@ void DatPhong::setMaDatPhong(int maDatPhong) {
     ma_dat_phong = maDatPhong;
 }
 
-const string &DatPhong::getThoiGianDat() const {
+const std::string &DatPhong::getThoiGianDat() const {
     return thoi_gian_dat;
 }
 
-void DatPhong::setThoiGianDat(const string &thoiGianDat) {
+void DatPhong::setThoiGianDat(const std::string &thoiGianDat) {
     thoi_gian_dat = thoiGianDat;
 }
 
-const string &DatPhong::getThoiGianNhan() const {
+const std::string &DatPhong::getThoiGianNhan() const {
     return thoi_gian_nhan;
 }
 
-void DatPhong::setThoiGianNhan(const string &thoiGianNhan) {
+void DatPhong::setThoiGianNhan(const std::string &thoiGianNhan) {
     thoi_gian_nhan = thoiGianNhan;
 }
 
-const string &DatPhong::getThoiGianTra() const {
+const std::string &DatPhong::getThoiGianTra() const {
     return thoi_gian_tra;
 }
 
-void DatPhong::setThoiGianTra(const string &thoiGianTra) {
+void DatPhong::setThoiGianTra(const std::string &thoiGianTra) {
     thoi_gian_tra = thoiGianTra;
 }
 
-const string &DatPhong::getTinhTrangDatPhong() const {
+const std::string &DatPhong::getTinhTrangDatPhong() const {
     return tinh_trang_dat_phong;
 }
 
-void DatPhong::setTinhTrangDatPhong(const string &tinhTrangDatPhong) {
+void DatPhong::setTinhTrangDatPhong(const std::string &tinhTrangDatPhong) {
     tinh_trang_dat_phong = tinhTrangDatPhong;
 }
 

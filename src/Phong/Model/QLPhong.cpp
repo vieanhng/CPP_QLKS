@@ -47,7 +47,7 @@ void QLPhong::xoaPhong() {
         case 1:
             ss.str("");
             ss << "DELETE from phong where ma_phong=" << phong_can_xoa;
-            queryToDatabase(ss.str().c_str(),"Xoa phong thanh cong!\n");
+            queryToDatabase(ss.str(),"Xoa phong thanh cong!\n");
             danhSachPhong();
             break;
         case 2:
@@ -104,7 +104,7 @@ void QLPhong::suaPhong() {
 
 Phong* QLPhong::loadPhong(int maPhong) {
     Phong* room = NULL;
-    std::stringstream ss;
+    ss.str("");
     ss << "SELECT * FROM phong WHERE ma_phong=" << maPhong;
     std::string query = ss.str();
 
