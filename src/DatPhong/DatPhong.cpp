@@ -85,11 +85,20 @@ void DatPhong::setMaKh(int maKh) {
 }
 
 void DatPhong::nhap() {
-
+this->thoi_gian_dat = getString("Nhap thoi gian dat: ",20 ) ;
+this->thoi_gian_nhan = getString("Nhap thoi gian nhan: ", 20);
+this->thoi_gian_tra = getString("Nhap thoi gian tra: ", 20);
+this->tinh_trang_dat_phong = getString("Nhap tinh trang dat phong: ",30);
 }
 
 void DatPhong::hienThiThongTin() {
-
+    std::cout << "Thong tin dat phong:";
+    std::cout << "\n====================================\n";
+    std::cout << "Thoi gian dat: " << getThoiGianDat();
+    std::cout << "\nThoi gian nhan: " << getThoiGianNhan();
+    std::cout << "\nSThoi gian tra: " << getThoiGianTra();
+    std::cout << "\nTinh trang dat phong: " << getTinhTrangDatPhong();
+    std::cout << "\n====================================\n";
 }
 
 
