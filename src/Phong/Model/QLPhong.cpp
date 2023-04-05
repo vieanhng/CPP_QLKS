@@ -12,6 +12,7 @@ bool QLPhong::taoPhong() {
         room->nhap();
         room->hienThiThongTin();
         std::string taoPhongQuery;
+        ss.str("");
         ss << "INSERT INTO phong(loai_phong,so_phong,gia_phong,tinh_trang_phong) "
               "VALUES ("
            << "'" << room->getLoaiPhong() << "',"

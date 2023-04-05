@@ -11,6 +11,7 @@ void QLKhachHang::taoKhachHang() {
         khachhang->nhap();
         khachhang->hienThiThongTin();
         std::string taoKhachHangQuery;
+        ss.str("");
         ss << "INSERT INTO khach_hang(ten_KH,dia_chi,sdt,email,cccd) "
               "VALUES ("
            << "'" << khachhang->getTenKh() << "',"
