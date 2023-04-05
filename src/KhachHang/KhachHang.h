@@ -16,10 +16,11 @@ private:
     std::string dia_chi;
     std::string sdt;
     std::string email;
+    std::string cccd;
 public:
     KhachHang();
 
-    KhachHang(int maKh, const std::string &tenKh, const std::string &diaChi, const std::string &sdt, const std::string &email);
+    KhachHang(int maKh, const std::string &tenKh, const std::string &diaChi, const std::string &sdt, const std::string &email,const std::string &cccd );
 
     virtual ~KhachHang();
 
@@ -46,6 +47,10 @@ public:
     void hienThiThongTin();
 
     void nhap();
+
+    const std::string &getCccd() const;
+
+    void setCccd(const std::string &cccd);
 };
 
 

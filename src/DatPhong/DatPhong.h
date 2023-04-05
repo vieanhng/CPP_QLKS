@@ -5,24 +5,28 @@
 #ifndef CPP_QLKS_DATPHONG_H
 #define CPP_QLKS_DATPHONG_H
 #include <iostream>
+#include "../KhachHang/KhachHang.h"
+#include "../Phong/Phong.h"
 #include "../Utils/Utils.h"
 
 class DatPhong {
 private:
     int ma_dat_phong;
     std::string thoi_gian_dat;
-    std::string thoi_gian_nhan;
     std::string thoi_gian_tra;
     std::string tinh_trang_dat_phong;
-    int ma_phong;
-    int ma_kh;
+    KhachHang *kh;
+    Phong *p;
 public:
     DatPhong();
 
+    DatPhong(int maDatPhong, const std::string &thoiGianDat, const std::string &thoiGianTra,
+             const std::string &tinhTrangDatPhong, KhachHang *kh, Phong *p);
+
+
     virtual ~DatPhong();
 
-    DatPhong(int maDatPhong, const std::string &thoiGianDat, const std::string &thoiGianNhan, const std::string &thoiGianTra,
-             const std::string &tinhTrangDatPhong, int maPhong, int maKh);
+
 
     int getMaDatPhong() const;
 
@@ -44,17 +48,19 @@ public:
 
     void setTinhTrangDatPhong(const std::string &tinhTrangDatPhong);
 
-    int getMaPhong() const;
-
-    void setMaPhong(int maPhong);
-
-    int getMaKh() const;
-
-    void setMaKh(int maKh);
-
     void nhap();
 
     void hienThiThongTin();
+
+    KhachHang *getKh() const;
+
+    void setKh(KhachHang *kh);
+
+    Phong *getP() const;
+
+    void setP(Phong *p);
+
+
 };
 
 

@@ -44,14 +44,6 @@ void DatPhong::setThoiGianDat(const std::string &thoiGianDat) {
     thoi_gian_dat = thoiGianDat;
 }
 
-const std::string &DatPhong::getThoiGianNhan() const {
-    return thoi_gian_nhan;
-}
-
-void DatPhong::setThoiGianNhan(const std::string &thoiGianNhan) {
-    thoi_gian_nhan = thoiGianNhan;
-}
-
 const std::string &DatPhong::getThoiGianTra() const {
     return thoi_gian_tra;
 }
@@ -68,35 +60,34 @@ void DatPhong::setTinhTrangDatPhong(const std::string &tinhTrangDatPhong) {
     tinh_trang_dat_phong = tinhTrangDatPhong;
 }
 
-int DatPhong::getMaPhong() const {
-    return ma_phong;
+KhachHang *DatPhong::getKh() const {
+    return kh;
 }
 
-void DatPhong::setMaPhong(int maPhong) {
-    ma_phong = maPhong;
+void DatPhong::setKh(KhachHang *kh) {
+    DatPhong::kh = kh;
 }
 
-int DatPhong::getMaKh() const {
-    return ma_kh;
+Phong *DatPhong::getP() const {
+    return p;
 }
 
-void DatPhong::setMaKh(int maKh) {
-    ma_kh = maKh;
+void DatPhong::setP(Phong *p) {
+    DatPhong::p = p;
 }
 
 void DatPhong::nhap() {
-this->thoi_gian_dat = getString("Nhap thoi gian dat: ",20 ) ;
-this->thoi_gian_nhan = getString("Nhap thoi gian nhan: ", 20);
-this->thoi_gian_tra = getString("Nhap thoi gian tra: ", 20);
-this->tinh_trang_dat_phong = getString("Nhap tinh trang dat phong: ",30);
+this->thoi_gian_dat = getDate("Nhap thoi gian dat: ") ;
+this->thoi_gian_tra = getDate("Nhap thoi gian tra: ");
 }
 
 void DatPhong::hienThiThongTin() {
     std::cout << "Thong tin dat phong:";
     std::cout << "\n====================================\n";
-    std::cout << "Thoi gian dat: " << getThoiGianDat();
-    std::cout << "\nThoi gian nhan: " << getThoiGianNhan();
-    std::cout << "\nSThoi gian tra: " << getThoiGianTra();
+    std::cout << "\nTen khach hang: " << kh->getTenKh();
+    std::cout << "\nSo phong: " << p->getSoPhong();
+    std::cout << "\nThoi gian dat: " << getThoiGianDat();
+    std::cout << "\nThoi gian tra: " << getThoiGianTra();
     std::cout << "\nTinh trang dat phong: " << getTinhTrangDatPhong();
     std::cout << "\n====================================\n";
 }

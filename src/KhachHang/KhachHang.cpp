@@ -6,8 +6,8 @@
 
 KhachHang::KhachHang() {}
 
-KhachHang::KhachHang(int maKh, const std::string &tenKh, const std::string &diaChi, const std::string &sdt, const std::string &email)
-        : ma_kh(maKh), ten_kh(tenKh), dia_chi(diaChi), sdt(sdt), email(email) {}
+KhachHang::KhachHang(int maKh, const std::string &tenKh, const std::string &diaChi, const std::string &sdt, const std::string &email, const std::string &cccd )
+        : ma_kh(maKh), ten_kh(tenKh), dia_chi(diaChi), sdt(sdt), email(email), cccd(cccd) {}
 
 KhachHang::~KhachHang() {
 
@@ -53,6 +53,14 @@ void KhachHang::setEmail(const std::string &email) {
     KhachHang::email = email;
 }
 
+const std::string &KhachHang::getCccd() const {
+    return cccd;
+}
+
+void KhachHang::setCccd(const std::string &cccd) {
+    KhachHang::cccd = cccd;
+}
+
 void KhachHang::hienThiThongTin() {
     std::cout << "Thong tin khach hang";
     std::cout <<"\n----------------------";
@@ -60,11 +68,13 @@ void KhachHang::hienThiThongTin() {
     std::cout <<"\nDia chi:"<<getDiaChi();
     std::cout <<"\nSo dien thoai:"<<getSdt();
     std::cout<<"\nEmail:"<<getEmail();
+    std::cout<<"\nCan cuoc cong dan: "<<getCccd()<<std::endl;
 }
 void KhachHang::nhap() {
-    this->ten_kh = getString("Nhap ten khach hang:",50);
-    this->dia_chi = getString("Nhap dia chi:",50);
-    this->email = getString("Nhap email:",100);
-    this->sdt = getString("Nhap so dien thoai:",20);
+    this->ten_kh = getString("Nhap ten khach hang: ",50);
+    this->dia_chi = getString("Nhap dia chi: ",100);
+    this->sdt = getString("Nhap so dien thoai: ",20);
+    this->email = getString("Nhap email: ",100);
+    this->cccd= getString("Nhap can cuoc cong dan: ",20);
 }
 

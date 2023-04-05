@@ -115,3 +115,24 @@ bool userChoice()
     return false;
 }
 
+const std::string getDate(const std::string &msg) {
+    std::regex date_regex("^(\\d{4})-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])\\s([01]?[0-9]|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?$");
+    std::string s;
+    std::cout << msg;
+    std::getline(std::cin >> std::ws, s);
+
+    while (s.empty())
+    {
+        std::cout << "Vui long nhap thoi gian (YYYY-MM-DD HH:MI:SS)\n";
+        std::cout << msg;
+        std::getline(std::cin, s);
+    }
+
+    while (!std::regex_match(s, date_regex)) {
+        std::cout << "Sai dinh dang vui long nhap lai (YYYY-MM-DD HH:MI:SS)\n";
+        std::cout << msg;
+        std::getline(std::cin, s);
+    }
+    return s;
+}
+

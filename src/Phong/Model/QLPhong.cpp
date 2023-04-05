@@ -23,7 +23,7 @@ bool QLPhong::taoPhong() {
         queryToDatabase(taoPhongQuery);
         delete room;
         danhSachPhong();
-        cout << "Tao phong thanh cong!";
+        std::cout << "Tao phong thanh cong!";
     }
     catch (const char* msg)
     {
@@ -53,7 +53,7 @@ void QLPhong::xoaPhong() {
         case 2:
             break;
     }
-    delete &p;
+    delete p;
 }
 
 void QLPhong::suaPhong() {

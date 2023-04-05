@@ -14,9 +14,10 @@ void QLKhachHang::taoKhachHang() {
         ss << "INSERT INTO khach_hang(ten_KH,dia_chi,sdt,email) "
               "VALUES ("
            << "'" << khachhang->getTenKh() << "',"
-                << "'"<< khachhang->getDiaChi()<< "'" << ","
-                << "'"<< khachhang->getSdt()<< "'" << ","
-                << "'"<< khachhang->getEmail()<< "'"
+                << "'"<< khachhang->getDiaChi() << "',"
+                << "'"<< khachhang->getSdt() << "',"
+                << "'"<< khachhang->getEmail() << "',"
+                << "'"<< khachhang->getCccd() << "'"
            << ")";
         taoKhachHangQuery = ss.str();
         queryToDatabase(taoKhachHangQuery);
@@ -50,7 +51,7 @@ void QLKhachHang::xoaKhachHang() {
         case 2:
             break;
     }
-    delete &kh;
+    delete kh;
 }
 
 void QLKhachHang::suaKhachHang() {
@@ -59,7 +60,7 @@ void QLKhachHang::suaKhachHang() {
         dsKhachHang();
         int khach_hang_can_sua = getNumber("Nhap ma khach hang can sua: ");
         while(!existKhachHang(khach_hang_can_sua)){
-            khach_hang_can_sua = getNumber("Sai ma phong! Vui long nhap lai: ");
+            khach_hang_can_sua = getNumber("Sai ma khach hang! Vui long nhap lai: ");
         }
         KhachHang* kh;
         kh = loadKhachHang(khach_hang_can_sua);
@@ -70,9 +71,10 @@ void QLKhachHang::suaKhachHang() {
                     "2.Dia chi\n"
                     "3.So dien thoai\n"
                     "4.Email\n"
+                    "5.Can cuoc cong dan\n"
                     "Lua chon khac:\n"
-                    "5.Luu\n"
-                    "6.Thoat\n";
+                    "6.Luu\n"
+                    "7.Thoat\n";
             choice = getNumber("Lua chon: ");
             switch (choice) {
                 case 1:
@@ -88,11 +90,13 @@ void QLKhachHang::suaKhachHang() {
                     kh->setEmail(getString("Nhap email khach hang: ",100));
                     break;
                 case 5:
+                    kh->setCccd(getString("Nhap can cuoc cong dan: ",20));
+                case 6:
                     capNhatKhachHang(kh);
                     delete kh;
                     break;
             }
-        } while ( choice != 6 && choice !=5 );
+        } while ( choice != 6 && choice !=7 );
     } catch (const char* msg)
     {
         std::cout << msg << '\n';
@@ -106,14 +110,15 @@ void QLKhachHang::dsKhachHang() {
     try {
         tabulate::Table khachhangTable;
         cout << "DANH SACH KHACH HANG"<<endl;
-        khachhangTable.add_row({"ma khach hang","ten khach hang","dia chi","so dien thoai","email"});
+        khachhangTable.add_row({"thu tu","ma khach hang","ten khach hang","dia chi","so dien thoai","email","can cuoc cong dan"});
         ss.str("");
         ss << "select * from khach_hang";
         std::string query = ss.str();
         MYSQL_RES* res = exec_query(query.c_str());
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(res))) {
-            khachhangTable.add_row({row[0], row[1],row[2],row[3],row[4]});
+            khachhangTable.add_row({std::to_string(i),row[0], row[1],row[2],row[3],row[4],row[5]});
+            i++;
         }
         std::cout << khachhangTable << std::endl;
         mysql_free_result(res);
@@ -144,6 +149,28 @@ KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     mysql_free_result(res);
     return khachhang;
 }
+KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
+    KhachHang* khachhang = NULL;
+    ss.str("");
+    ss << "SELECT * FROM khach_hang WHERE cccd = '" << cccd <<"'";
+    std::string query = ss.str();
+
+    MYSQL_RES* res = exec_query(query.c_str());
+    MYSQL_ROW row = mysql_fetch_row(res);
+
+    if (row != NULL) {
+        khachhang = new KhachHang();
+        khachhang->setMaKh(std::atoi(row[0]));
+        khachhang->setTenKh(row[1]);
+        khachhang->setDiaChi(row[2]);
+        khachhang->setSdt(row[3]);
+        khachhang->setEmail(row[4]);
+        khachhang->setCccd(cccd);
+    }
+
+    mysql_free_result(res);
+    return khachhang;
+}
 void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
     ss.str("");
     ss << "UPDATE khach_hang SET ten_kh = '" << kh->getTenKh() << "', "
@@ -160,6 +187,15 @@ bool QLKhachHang::existKhachHang(int ma_kh) {
     if(checkLength(ss.str())>0){
         return true;
     }
+    return false;
 
+}
+
+bool QLKhachHang::existKhachHang(std::string cccd) {
+    ss.str("");
+    ss << "Select cccd from khach_hang where cccd= '" <<  cccd << "'";
+    if (checkLength(ss.str()) > 0) {
+        return true;
+    }
     return false;
 }

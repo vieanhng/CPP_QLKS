@@ -5,7 +5,43 @@
 #include "QLDatPhong.h"
 
 void QLDatPhong::taoDatPhong() {
+    std::string cccd;
+    KhachHang *kh;
+    Phong* p;
+    DatPhong* dp;
+    cccd = getString("Nhap can cuoc cong dan: ",20);
+    if(!qlKH.existKhachHang(cccd)){
+        qlKH.taoKhachHang();
+    };
 
+    kh = qlKH.loadKhachHang(cccd);
+    dp->setKh(kh);
+    qlP.danhSachPhong();
+    int ma_phong = getNumber("Nhap ma phong muon chon: ");
+    while(!qlP.existPhong(ma_phong)){
+        ma_phong = getNumber("Sai ma phong! Vui long nhap lai: ");
+    }
+    p = qlP.loadPhong(ma_phong);
+    dp->setP(p);
+    dp->nhap();
+    dp->setTinhTrangDatPhong("Thanh cong");
+    std::string datPhongQuery;
+    ss << "INSERT INTO dat_phong(thoi_gian_dat,thoi_gian_tra,tinh_trang_dat_phong,ma_phong,ma_kh) "
+          "VALUES ("
+       << "'" << dp->getThoiGianDat()<< "',"
+            << "'"<< dp->getThoiGianTra()<< "',"
+            << "'" << dp->getTinhTrangDatPhong()<< "',"
+            << dp->getP()->getMaPhong() << ","
+            << dp->getKh()->getMaKh() << ","
+       << ")";
+    datPhongQuery = ss.str();
+    queryToDatabase(datPhongQuery);
+    p->setTinhTrangPhong(0);
+    qlP.capNhatPhong(p);
+
+    delete p;
+    delete dp;
+    delete kh;
 }
 
 void QLDatPhong::xoaDatPhong() {

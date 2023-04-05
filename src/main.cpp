@@ -5,11 +5,16 @@
 #include "KhachHang/Model/QLKhachHang.h"
 
 int main(int argc, char** argv) {
-    QLKhachHang kh;
-   kh.taoKhachHang();
-   kh.suaKhachHang();
-   kh.xoaKhachHang();
-   kh.dsKhachHang();
+   // QLKhachHang kh;
+//    QLPhong p;
+//    p.danhSachPhong("tinh_trang_phong = 1");
+ // kh.taoKhachHang();
+//   kh.suaKhachHang();
+//   kh.xoaKhachHang();
+QLDatPhong dp;
+dp.taoDatPhong();
+//std::string date = getDate("Nhap ngay:");
+
 
     return 0;
 }
