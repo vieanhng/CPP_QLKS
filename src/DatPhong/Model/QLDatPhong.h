@@ -6,9 +6,14 @@
 #define CPP_QLKS_QLDATPHONG_H
 #include <iostream>
 #include "../DatPhong.h"
+#include "../../KhachHang/Model/QLKhachHang.h"
+#include "../../Phong/Model/QLPhong.h"
 #include "../../QLBase/QLBase.h"
 
 class QLDatPhong: protected QLBase{
+private:
+    QLKhachHang qlKH;
+    QLPhong qlP;
 public:
     void taoDatPhong();
     void xoaDatPhong();

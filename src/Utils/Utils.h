@@ -9,12 +9,16 @@
 #include <string>
 #include <climits>
 #include <vector>
+#include <regex>
+
 
 const std::string getString(const std::string& msg, int maxLen);
 
 int getNumber(const std::string& msg);
 
 int getNumberWithLimit(const std::string& msg, int limit);
+
+const std::string getDate(const std::string& msg);
 
 std::vector<int> stringsToInts(std::vector<std::string> strs);
 

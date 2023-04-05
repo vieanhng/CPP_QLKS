@@ -4,6 +4,7 @@
 
 #include "QLDatPhong.h"
 
+
 void QLDatPhong::taoDatPhong() {
     std::string cccd;
     KhachHang *kh;

@@ -3,6 +3,8 @@
 #include "Phong/Phong.h"
 #include "Phong/Model/QLPhong.h"
 #include "KhachHang/Model/QLKhachHang.h"
+#include "DatPhong/Model/QLDatPhong.h"
+#include "Utils/Utils.h"
 
 int main(int argc, char** argv) {
    // QLKhachHang kh;

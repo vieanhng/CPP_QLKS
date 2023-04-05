@@ -11,7 +11,7 @@ void QLKhachHang::taoKhachHang() {
         khachhang->nhap();
         khachhang->hienThiThongTin();
         std::string taoKhachHangQuery;
-        ss << "INSERT INTO khach_hang(ten_KH,dia_chi,sdt,email) "
+        ss << "INSERT INTO khach_hang(ten_KH,dia_chi,sdt,email,cccd) "
               "VALUES ("
            << "'" << khachhang->getTenKh() << "',"
                 << "'"<< khachhang->getDiaChi() << "',"
@@ -24,6 +24,7 @@ void QLKhachHang::taoKhachHang() {
         delete khachhang;
         dsKhachHang();
         cout << "Tao thong tin khach hang thanh cong!";
+
     }
     catch (const char* msg)
     {
@@ -116,6 +117,7 @@ void QLKhachHang::dsKhachHang() {
         std::string query = ss.str();
         MYSQL_RES* res = exec_query(query.c_str());
         MYSQL_ROW row;
+        int i = 1;
         while ((row = mysql_fetch_row(res))) {
             khachhangTable.add_row({std::to_string(i),row[0], row[1],row[2],row[3],row[4],row[5]});
             i++;

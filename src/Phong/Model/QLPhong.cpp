@@ -129,13 +129,16 @@ std::vector<Phong *> QLPhong::getAllRooms() {
     return std::vector<Phong *>();
 }
 
-void QLPhong::danhSachPhong(){
+void QLPhong::danhSachPhong(std::string where){
     try {
         tabulate::Table phongTable;
         cout << "DANH SACH PHONG"<<endl;
         phongTable.add_row({"ma_phong","loai_phong","so_phong","gia_phong","tinh_trang_phong"});
         ss.str("");
         ss << "select * from phong";
+        if(where != ""){
+            ss << " where " << where;
+        };
         std::string query = ss.str();
         MYSQL_RES* res = exec_query(query.c_str());
         MYSQL_ROW row;

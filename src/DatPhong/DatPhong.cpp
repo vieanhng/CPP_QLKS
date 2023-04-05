@@ -10,23 +10,13 @@ DatPhong::~DatPhong() {
 
 }
 
-DatPhong::DatPhong(
-        int maDatPhong,
-        const std::string &thoiGianDat,
-        const std::string &thoiGianNhan,
-        const std::string &thoiGianTra,
-        const std::string &tinhTrangDatPhong,
-        int maPhong,
-        int maKh
-        ) :
-        ma_dat_phong(maDatPhong),
-        thoi_gian_dat(thoiGianDat),
-        thoi_gian_nhan(thoiGianNhan),
-        thoi_gian_tra(thoiGianTra),
-        tinh_trang_dat_phong(tinhTrangDatPhong),
-        ma_phong(maPhong),
-        ma_kh(maKh)
-        {}
+DatPhong::DatPhong(int maDatPhong, const std::string &thoiGianDat, const std::string &thoiGianTra,
+                   const std::string &tinhTrangDatPhong, KhachHang *kh, Phong *p) : ma_dat_phong(maDatPhong),
+                                                                                    thoi_gian_dat(thoiGianDat),
+                                                                                    thoi_gian_tra(thoiGianTra),
+                                                                                    tinh_trang_dat_phong(
+                                                                                            tinhTrangDatPhong), kh(kh),
+                                                                                    p(p) {}
 
 int DatPhong::getMaDatPhong() const {
     return ma_dat_phong;
