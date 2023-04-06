@@ -67,8 +67,8 @@ void DatPhong::setP(Phong *p) {
 }
 
 void DatPhong::nhap() {
-this->thoi_gian_dat = getDate("Nhap thoi gian dat: ") ;
-this->thoi_gian_tra = getDate("Nhap thoi gian tra: ");
+    this->thoi_gian_dat = getDate("Nhap thoi gian dat: ") ;
+    this->thoi_gian_tra = getDate("Nhap thoi gian tra: ");
 }
 
 void DatPhong::hienThiThongTin() {

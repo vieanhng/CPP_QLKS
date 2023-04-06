@@ -9,7 +9,7 @@ void QLDatPhong::taoDatPhong() {
     std::string cccd;
     KhachHang *kh;
     Phong* p;
-    DatPhong* dp;
+    DatPhong* dp = new DatPhong;
     cccd = getString("Nhap can cuoc cong dan: ",20);
     if(!qlKH.existKhachHang(cccd)){
         qlKH.taoKhachHang();
@@ -17,7 +17,7 @@ void QLDatPhong::taoDatPhong() {
 
     kh = qlKH.loadKhachHang(cccd);
     dp->setKh(kh);
-    qlP.danhSachPhong();
+    qlP.danhSachPhong("tinh_trang_phong = 1");
     int ma_phong = getNumber("Nhap ma phong muon chon: ");
     while(!qlP.existPhong(ma_phong)){
         ma_phong = getNumber("Sai ma phong! Vui long nhap lai: ");
@@ -26,7 +26,9 @@ void QLDatPhong::taoDatPhong() {
     dp->setP(p);
     dp->nhap();
     dp->setTinhTrangDatPhong("Thanh cong");
+    dp->hienThiThongTin();
     std::string datPhongQuery;
+    ss.str("");
     ss << "INSERT INTO dat_phong(thoi_gian_dat,thoi_gian_tra,tinh_trang_dat_phong,ma_phong,ma_kh) "
           "VALUES ("
        << "'" << dp->getThoiGianDat()<< "',"
