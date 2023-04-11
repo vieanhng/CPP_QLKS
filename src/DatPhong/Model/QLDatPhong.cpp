@@ -13,8 +13,7 @@ void QLDatPhong::taoDatPhong() {
     cccd = getString("Nhap can cuoc cong dan: ",20);
     if(!qlKH.existKhachHang(cccd)){
         qlKH.taoKhachHang();
-    };
-
+    }
     kh = qlKH.loadKhachHang(cccd);
     dp->setKh(kh);
     qlP.danhSachPhong("tinh_trang_phong = 1");
@@ -38,7 +37,7 @@ void QLDatPhong::taoDatPhong() {
             << dp->getKh()->getMaKh() << ","
        << ")";
     datPhongQuery = ss.str();
-    queryToDatabase(datPhongQuery);
+    db.queryToDatabase(datPhongQuery);
     p->setTinhTrangPhong(0);
     qlP.capNhatPhong(p);
 

@@ -21,7 +21,7 @@ void QLKhachHang::taoKhachHang() {
                 << "'"<< khachhang->getCccd() << "'"
            << ")";
         taoKhachHangQuery = ss.str();
-        queryToDatabase(taoKhachHangQuery);
+        db.queryToDatabase(taoKhachHangQuery);
         delete khachhang;
         dsKhachHang();
         cout << "Tao thong tin khach hang thanh cong!";
@@ -47,7 +47,7 @@ void QLKhachHang::xoaKhachHang() {
         case 1:
             ss.str("");
             ss << "DELETE from khach_hang where ma_kh=" << khach_hang_can_xoa;
-            queryToDatabase(ss.str(),"Xoa khach hang thanh cong!\n");
+            db.queryToDatabase(ss.str(),"Xoa khach hang thanh cong!\n");
             dsKhachHang();
             break;
         case 2:
@@ -116,7 +116,7 @@ void QLKhachHang::dsKhachHang() {
         ss.str("");
         ss << "select * from khach_hang";
         std::string query = ss.str();
-        MYSQL_RES* res = exec_query(query.c_str());
+        MYSQL_RES* res = db.exec_query(query.c_str());
         MYSQL_ROW row;
         int i = 1;
         while ((row = mysql_fetch_row(res))) {
@@ -137,7 +137,7 @@ KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     ss << "SELECT * FROM khach_hang WHERE ma_kh=" << maKh;
     std::string query = ss.str();
 
-    MYSQL_RES* res = exec_query(query.c_str());
+    MYSQL_RES* res = db.exec_query(query.c_str());
     MYSQL_ROW row = mysql_fetch_row(res);
 
     if (row != NULL) {
@@ -158,7 +158,7 @@ KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
     ss << "SELECT * FROM khach_hang WHERE cccd = '" << cccd <<"'";
     std::string query = ss.str();
 
-    MYSQL_RES* res = exec_query(query.c_str());
+    MYSQL_RES* res = db.exec_query(query.c_str());
     MYSQL_ROW row = mysql_fetch_row(res);
 
     if (row != NULL) {
@@ -182,12 +182,12 @@ void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
        << "email = '" << kh->getEmail() << "' "
        << "WHERE ma_kh = " << kh->getMaKh() << ";";
     string updateKhachHangQuery = ss.str();
-    queryToDatabase(updateKhachHangQuery,"Cap nhat thong tin khach hang thanh cong!");
+    db.queryToDatabase(updateKhachHangQuery,"Cap nhat thong tin khach hang thanh cong!");
 }
 bool QLKhachHang::existKhachHang(int ma_kh) {
     ss.str("");
     ss << "Select ma_kh from khach_hang where ma_kh=" << ma_kh;
-    if(checkLength(ss.str())>0){
+    if(db.checkLength(ss.str())>0){
         return true;
     }
     return false;
@@ -197,7 +197,7 @@ bool QLKhachHang::existKhachHang(int ma_kh) {
 bool QLKhachHang::existKhachHang(std::string cccd) {
     ss.str("");
     ss << "Select cccd from khach_hang where cccd= '" <<  cccd << "'";
-    if (checkLength(ss.str()) > 0) {
+    if (db.checkLength(ss.str()) > 0) {
         return true;
     }
     return false;

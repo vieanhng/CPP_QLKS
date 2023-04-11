@@ -11,10 +11,14 @@
 
 
 
-class QLBase : public Database{
+class QLBase {
 protected:
     std::stringstream ss;
-
+    Database db;
+public:
+    virtual void tao();
+    virtual void load();
+    virtual void danhSach();
 };
 
 

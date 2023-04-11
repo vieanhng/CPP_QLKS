@@ -21,7 +21,7 @@ bool QLPhong::taoPhong() {
            << room->getTinhTrangPhong()
            << ")";
         taoPhongQuery = ss.str();
-        queryToDatabase(taoPhongQuery);
+        db.queryToDatabase(taoPhongQuery);
         delete room;
         danhSachPhong();
         std::cout << "Tao phong thanh cong!";
@@ -48,7 +48,7 @@ void QLPhong::xoaPhong() {
         case 1:
             ss.str("");
             ss << "DELETE from phong where ma_phong=" << phong_can_xoa;
-            queryToDatabase(ss.str(),"Xoa phong thanh cong!\n");
+            db.queryToDatabase(ss.str(),"Xoa phong thanh cong!\n");
             danhSachPhong();
             break;
         case 2:
@@ -109,7 +109,7 @@ Phong* QLPhong::loadPhong(int maPhong) {
     ss << "SELECT * FROM phong WHERE ma_phong=" << maPhong;
     std::string query = ss.str();
 
-    MYSQL_RES* res = exec_query(query.c_str());
+    MYSQL_RES* res = db.exec_query(query.c_str());
     MYSQL_ROW row = mysql_fetch_row(res);
 
     if (row != NULL) {
@@ -141,7 +141,7 @@ void QLPhong::danhSachPhong(std::string where){
             ss << " where " << where;
         };
         std::string query = ss.str();
-        MYSQL_RES* res = exec_query(query.c_str());
+        MYSQL_RES* res = db.exec_query(query.c_str());
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(res))) {
             phongTable.add_row({row[0], row[1],row[2],row[3], tinhTrangPhong(std::atoi(row[4]))});
@@ -165,13 +165,13 @@ void QLPhong::capNhatPhong(Phong* p){
        << "tinh_trang_phong = " << p->getTinhTrangPhong() << " "
        << "WHERE ma_phong = " << p->getMaPhong() << ";";
     string updatePhongQuery = ss.str();
-    queryToDatabase(updatePhongQuery,"Cap nhat phong thanh cong!");
+    db.queryToDatabase(updatePhongQuery,"Cap nhat phong thanh cong!");
 }
 
 bool QLPhong::existPhong(int ma_phong) {
     ss.str("");
     ss << "Select ma_phong from phong where ma_phong=" << ma_phong;
-    if(checkLength(ss.str())>0){
+    if(db.checkLength(ss.str())>0){
         return true;
     }
 
