@@ -7,13 +7,7 @@
 void QLKhachSan::suaKhachSan() {
     try{
         int choice;
-        danhSachKhachSan();
-        int KhachSan_can_sua = getNumber("Nhap ma khach san can sua: ");
-        while(!existKhachSan(KhachSan_can_sua)){
-            KhachSan_can_sua = getNumber("Sai ma khach san! Vui long nhap lai: ");
-        }
         KhachSan* x;
-        x = loadKhachSan(KhachSan_can_sua);
         do {
             x->hienthithongtin();
             cout << "Chon truong muon sua:\n"
@@ -65,12 +59,3 @@ void QLKhachSan::capNhatThongTin(KhachSan* x) {
     string updateThongtinQuery = ss.str();
     db.queryToDatabase(updateThongtinQuery,"Cap nhat phong thanh cong!");
 }
-
-bool QLKhachSan::existKhachSan(int ma_ks) {
-    ss.str("");
-    ss << "Select ma_ks from KhachSan where ma_ks=" << ma_ks;
-    if(db.checkLength(ss.str())>0){
-        return true;
-    }
-
-    return false;}
