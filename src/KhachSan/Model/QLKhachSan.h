@@ -10,7 +10,12 @@
 
 class QLKhachSan : protected QLBase{
 public:
-    void capNhatThongTin();
+    void capNhatThongTin(KhachSan* x);
+    void suaKhachSan();
+    KhachSan* loadKhachSan(int HotelNumber);
+    std::vector<KhachSan*> getAllHotels();
+    void danhSachKhachSan(std::string where = "");
+    bool existKhachSan(int ma_phong);
 };
 
 
