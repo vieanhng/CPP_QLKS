@@ -18,7 +18,19 @@ KhachSan::KhachSan(
         {}
 
 KhachSan::KhachSan() {
+    Database* db = new Database;
+    std::string query = "SELECT * FROM khach_san WHERE ma_ks=1";
 
+    MYSQL_RES* res = db->exec_query(query.c_str());
+    MYSQL_ROW row = mysql_fetch_row(res);
+
+    if (row != NULL) {
+        setTenKs(row[1]);
+
+    }
+
+    mysql_free_result(res);
+    delete db;
 }
 
 KhachSan::~KhachSan() {
@@ -60,9 +72,9 @@ const std::string &KhachSan::getEmail() const {
 void KhachSan::setEmail(const std::string &email) {
     KhachSan::email = email;
 }
-void KhachSan::hienthithongtin(){
-    std::cout<<"Ten khach san:"<<getTenKs();
-    std::cout<<"Dia chi:"<<getDiaChi();
-    std::cout<<"Email:"<<getEmail();
-    std::cout<<"So dien thoai:"<<getSdt();
+void KhachSan::hienThiThongTin(){
+    std::cout<<"Ten khach san: "<<getTenKs() << std::endl;
+    std::cout<<"Dia chi: "<<getDiaChi()<< std::endl;
+    std::cout<<"Email: "<<getEmail()<< std::endl;
+    std::cout<<"So dien thoai: "<<getSdt()<< std::endl;
 }

@@ -5,6 +5,7 @@
 #ifndef CPP_QLKS_KHACHSAN_H
 #define CPP_QLKS_KHACHSAN_H
 #include <iostream>
+#include "../Database/Database.h"
 #include "../Utils/Utils.h"
 
 class KhachSan {
@@ -40,6 +41,8 @@ public:
     const std::string &getEmail() const;
 
     void setEmail(const std::string &email);
+
+    void hienThiThongTin();
 };
 
 

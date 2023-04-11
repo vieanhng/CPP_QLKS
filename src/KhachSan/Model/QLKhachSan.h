@@ -9,13 +9,11 @@
 #include "../../QLBase/QLBase.h"
 
 class QLKhachSan : protected QLBase{
+private:
+        KhachSan khachSan;
 public:
     void capNhatThongTin(KhachSan* x);
     void suaKhachSan();
-    KhachSan* loadKhachSan(int HotelNumber);
-    std::vector<KhachSan*> getAllHotels();
-    void danhSachKhachSan(std::string where = "");
-    bool existKhachSan(int ma_phong);
 };
 
 
