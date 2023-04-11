@@ -36,10 +36,6 @@ public:
 
     void setThoiGianDat(const std::string &thoiGianDat);
 
-    const std::string &getThoiGianNhan() const;
-
-    void setThoiGianNhan(const std::string &thoiGianNhan);
-
     const std::string &getThoiGianTra() const;
 
     void setThoiGianTra(const std::string &thoiGianTra);
@@ -59,8 +55,6 @@ public:
     Phong *getP() const;
 
     void setP(Phong *p);
-
-
 };
 
 

@@ -75,7 +75,7 @@ void DatPhong::hienThiThongTin() {
     std::cout << "Thong tin dat phong:";
     std::cout << "\n====================================\n";
     std::cout << "\nTen khach hang: " << kh->getTenKh();
-    std::cout << "\nSo phong: " << p->getSoPhong();
+    std::cout << "\nMa phong: " << p->getMaPhong();
     std::cout << "\nThoi gian dat: " << getThoiGianDat();
     std::cout << "\nThoi gian tra: " << getThoiGianTra();
     std::cout << "\nTinh trang dat phong: " << getTinhTrangDatPhong();
