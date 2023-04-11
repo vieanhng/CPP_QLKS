@@ -34,13 +34,13 @@ void QLDatPhong::taoDatPhong() {
             << "'"<< dp->getThoiGianTra()<< "',"
             << "'" << dp->getTinhTrangDatPhong()<< "',"
             << dp->getP()->getMaPhong() << ","
-            << dp->getKh()->getMaKh() << ","
+            << dp->getKh()->getMaKh()
        << ")";
     datPhongQuery = ss.str();
     db.queryToDatabase(datPhongQuery);
     p->setTinhTrangPhong(0);
     qlP.capNhatPhong(p);
-
+    dp->hienThiThongTin();
     delete p;
     delete dp;
     delete kh;
@@ -54,8 +54,30 @@ void QLDatPhong::suaDatPhong() {
 
 }
 
-void QLDatPhong::dsDatPhong() {
+void QLDatPhong::dsDatPhong(string where) {
+    try {
+        tabulate::Table datPhongTable;
+        cout << "DANH SACH DAT PHONG"<<endl;
+        datPhongTable.add_row({"ma_dat_phong","thoi_gian_dat","thoi_gian_tra","tinh_trang_dat_phong","so phong","tenkhachhang"});
+        ss.str("");
+        ss << "select ma_dat_phong,thoi_gian_dat,tinh_trang_dat_phong,so_phong,ten_kh"
+              " from dat_phong inner join khach_hang on dat_phong.ma_kh = khach_hang.ma_kh"
+              " inner join phong on dat_phong.ma_phong = phong.ma_phong";
 
+        if(where != ""){
+            ss << " where " << where;
+        };
+        std::string query = ss.str();
+        MYSQL_RES* res = db.exec_query(query.c_str());
+        MYSQL_ROW row;
+        while ((row = mysql_fetch_row(res))) {
+            datPhongTable.add_row({row[0], row[1],row[2],row[3],row[4],row[5]});
+        }
+        std::cout << datPhongTable << std::endl;
+        mysql_free_result(res);
+    }catch (std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
 }
 
 DatPhong *QLDatPhong::loadDatPhong(int ma_dat_phong) {
