@@ -15,11 +15,10 @@ public:
     void xoaPhong();
     void suaPhong();
     Phong* loadPhong(int roomNumber);
-    std::vector<Phong*> getAllRooms();
     void danhSachPhong(std::string where = "");
     string tinhTrangPhong(int tinhTrangPhong);
     void capNhatPhong(Phong* p);
-    bool existPhong(int ma_phong);
+    bool existPhong(int ma_phong, std::string filter = "");
 };
 
 

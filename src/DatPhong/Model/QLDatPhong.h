@@ -18,9 +18,10 @@ public:
     void taoDatPhong();
     void xoaDatPhong();
     void suaDatPhong();
-    void dsDatPhong();
+    void dsDatPhong(std::string where = "");
     DatPhong* loadDatPhong(int ma_dat_phong);
     bool existDatPhong(int ma_dat_phong);
+    void capNhatDatPhong(DatPhong *dp);
 };
 
 

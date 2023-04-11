@@ -126,10 +126,6 @@ Phong* QLPhong::loadPhong(int maPhong) {
 }
 
 
-std::vector<Phong *> QLPhong::getAllRooms() {
-    return std::vector<Phong *>();
-}
-
 void QLPhong::danhSachPhong(std::string where){
     try {
         tabulate::Table phongTable;
@@ -168,9 +164,12 @@ void QLPhong::capNhatPhong(Phong* p){
     db.queryToDatabase(updatePhongQuery,"Cap nhat phong thanh cong!");
 }
 
-bool QLPhong::existPhong(int ma_phong) {
+bool QLPhong::existPhong(int ma_phong, string filter) {
     ss.str("");
     ss << "Select ma_phong from phong where ma_phong=" << ma_phong;
+    if(filter!=""){
+        ss << " and " << filter;
+    }
     if(db.checkLength(ss.str())>0){
         return true;
     }
