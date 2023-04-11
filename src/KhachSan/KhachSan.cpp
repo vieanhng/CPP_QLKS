@@ -17,7 +17,9 @@ KhachSan::KhachSan(
         email(email)
         {}
 
-KhachSan::KhachSan() {}
+KhachSan::KhachSan() {
+
+}
 
 KhachSan::~KhachSan() {
 
@@ -57,4 +59,10 @@ const std::string &KhachSan::getEmail() const {
 
 void KhachSan::setEmail(const std::string &email) {
     KhachSan::email = email;
+}
+void KhachSan::hienthithongtin(){
+    std::cout<<"Ten khach san:"<<getTenKs();
+    std::cout<<"Dia chi:"<<getDiaChi();
+    std::cout<<"Email:"<<getEmail();
+    std::cout<<"So dien thoai:"<<getSdt();
 }
