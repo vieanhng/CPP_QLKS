@@ -20,13 +20,14 @@ KhachSan::KhachSan(
 KhachSan::KhachSan() {
     Database* db = new Database;
     std::string query = "SELECT * FROM khach_san WHERE ma_ks=1";
-
     MYSQL_RES* res = db->exec_query(query.c_str());
     MYSQL_ROW row = mysql_fetch_row(res);
 
     if (row != NULL) {
         setTenKs(row[1]);
-
+        setDiaChi(row[2]);
+        setSdt(row[3]);
+        setEmail(row[4]);
     }
 
     mysql_free_result(res);

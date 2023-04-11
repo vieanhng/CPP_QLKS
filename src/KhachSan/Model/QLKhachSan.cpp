@@ -7,41 +7,37 @@
 void QLKhachSan::suaKhachSan() {
     try{
         int choice;
-        KhachSan* x;
+        KhachSan* x=new KhachSan();
         do {
-            x->hienthithongtin();
+            x->hienThiThongTin();
             cout << "Chon truong muon sua:\n"
-                    "1.Ma khach san\n"
-                    "2.Ten khach san\n"
-                    "3.Dia chi\n"
-                    "4.Email\n"
-                    "5.So dien thoai\n"
+                    "1.Ten khach san\n"
+                    "2.Dia chi\n"
+                    "3.Email\n"
+                    "4.So dien thoai\n"
                     "Lua chon khac:\n"
                     "5.Luu\n"
                     "6.Thoat\n";
             choice = getNumber("Lua chon: ");
             switch (choice) {
                 case 1:
-                    x->setMaKs(getNumber("Nhap ma khach san: "));
-                    break;
-                case 2:
                     x->setTenKs(getString("Nhap ten khach san: ",40));
                     break;
-                case 3:
+                case 2:
                     x->setEmail(getString("Nhap email: ",20));
                     break;
-                case 4:
+                case 3:
                     x->setSdt(getString("Nhap so dien thoai: ",10));
                     break;
-                case 5:
+                case 4:
                     x->setDiaChi(getString("Nhap dia chi: ",100));
                     break;
-                case 6:
+                case 5:
                     capNhatThongTin(x);
                     delete x;
                     break;
             }
-        } while ( choice != 7 && choice !=6 );
+        } while ( choice != 6 && choice !=5 );
     } catch (const char* msg)
     {
         std::cout << msg << '\n';
@@ -49,13 +45,11 @@ void QLKhachSan::suaKhachSan() {
 }
 
 void QLKhachSan::capNhatThongTin(KhachSan* x) {
-//    KhachSan *x= new KhachSan;
     ss.str("");
-    ss << "UPDATE thongtin SET ten_ks = '" << x->getTenKs() << "', "
-       << "dia_chi = " << x->getDiaChi() << ", "
-       << "ma_ks = " << x->getMaKs()<<", "
-       << "sdt = " << x->getSdt() << ", "
-       << "email = " << x->getEmail() << " ";
-    string updateThongtinQuery = ss.str();
-    db.queryToDatabase(updateThongtinQuery,"Cap nhat phong thanh cong!");
+    ss << "UPDATE khach_san SET ten_ks = '" << x->getTenKs() << "', "
+       << "dia_chi = '" << x->getDiaChi() << "', "
+       << "sdt = '" << x->getSdt() << "', "
+       << "email = '" << x->getEmail() << "' ";
+    string updateKhachSanQuery = ss.str();
+    db.queryToDatabase(updateKhachSanQuery,"Cap nhat khach san thanh cong!");
 }
