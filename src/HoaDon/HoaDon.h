@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "../Utils/Utils.h"
+#include "../DatPhong/DatPhong.h"
 
 class HoaDon {
 private:
@@ -14,35 +15,36 @@ private:
     std::string ngay_lap;
     int so_tien;
     int tinh_trang_thanh_toan;
-    int ma_dat_phong;
+    DatPhong * datPhong;
 public:
     HoaDon(int soHD, std::string ngaylap,int soTien,int tinhtrangThanhToan,int madatPhong);
     HoaDon(){};
 
-    void nhap();
+    ~HoaDon(){}
 
+    void nhap();
 
     void hienThiThongTin();
 
-    int getsoHD() const;
+    int getSoHd() const;
 
-    void setsoHD(int soHD);
+    void setSoHd(int soHd);
 
-    const std::string &getngaylap() const;
+    const std::string &getNgayLap() const;
 
-    void setngaylap(const std::string &ngaylap);
+    void setNgayLap(const std::string &ngayLap);
 
-    int getsoTien() const;
+    int getSoTien() const;
 
-    void setsoTien(int soTien);
+    void setSoTien(int soTien);
 
-    int gettinhtrangThanhToan() const;
+    int getTinhTrangThanhToan() const;
 
-    void settinhtrangThanhToan(int tinhtrangThanhToan);
+    void setTinhTrangThanhToan(int tinhTrangThanhToan);
 
-    int getmadatPhong() const;
+    DatPhong *getDatPhong() const;
 
-    void setmadatPhong(int madatPhong);
+    void setDatPhong(DatPhong *datPhong);
 };
 
 

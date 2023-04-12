@@ -9,62 +9,63 @@ HoaDon::HoaDon(int soHD, std::string ngaylap, int soTien, int tinhtrangThanhToan
 
 void HoaDon::nhap() {
     {
-        this->ngay_lap = getString("Nhap ngay lap:", 50);
-        this->so_tien = getNumber("Nhap so tien: ");
-        this->tinh_trang_thanh_toan = getNumber("Nhap tinh trang thanh toan(1:Da thanh toan, 0:Chua thanh toan): ");
-        this->ma_dat_phong = getNumber("Nhap ma dat phong: ");
+        this->ngay_lap = getDate("Nhap ngay lap:");
     }
 }
 
-int HoaDon::getsoHD() const {
+int HoaDon::getSoHd() const {
     return so_HD;
 }
 
-void HoaDon::setsoHD(int soHD) {
-    so_HD = soHD;
+void HoaDon::setSoHd(int soHd) {
+    so_HD = soHd;
 }
 
-const std::string &HoaDon::getngaylap() const {
+const std::string &HoaDon::getNgayLap() const {
     return ngay_lap;
 }
 
-void HoaDon::setngaylap(const std::string &ngaylap) {
-    this->ngay_lap = ngaylap;
+void HoaDon::setNgayLap(const std::string &ngayLap) {
+    ngay_lap = ngayLap;
 }
 
-int HoaDon::getsoTien() const {
+int HoaDon::getSoTien() const {
     return so_tien;
 }
 
-void HoaDon::setsoTien(int soTien) {
-    this->so_tien = soTien;
+void HoaDon::setSoTien(int soTien) {
+    so_tien = soTien;
 }
 
-int HoaDon::gettinhtrangThanhToan() const {
+int HoaDon::getTinhTrangThanhToan() const {
     return tinh_trang_thanh_toan;
 }
 
-void HoaDon::settinhtrangThanhToan(int tinhtrangThanhToan) {
-    this->tinh_trang_thanh_toan = tinhtrangThanhToan;
+void HoaDon::setTinhTrangThanhToan(int tinhTrangThanhToan) {
+    tinh_trang_thanh_toan = tinhTrangThanhToan;
 }
 
-int HoaDon::getmadatPhong() const {
-    return ma_dat_phong;
+DatPhong *HoaDon::getDatPhong() const {
+    return datPhong;
 }
 
-void HoaDon::setmadatPhong(int madatPhong) {
-    this->ma_dat_phong = madatPhong;
+void HoaDon::setDatPhong(DatPhong *datPhong) {
+    HoaDon::datPhong = datPhong;
 }
 
 void HoaDon::hienThiThongTin() {
-    std::cout << "Thong tin phong:";
+    std::cout << "Thong tin hoa don:";
     std::cout << "\n====================================\n";
-    std::cout << "Ma phong: " << getsoHD();
-    std::cout << "\nLoai phong: " << getngaylap();
-    std::cout << "\nSo phong: " << getsoTien();
-    std::cout << "\nGia phong: " << gettinhtrangThanhToan();
-    std::cout << "\nTinh trang phong: " << getmadatPhong();
+    std::cout << "So hoa don: " << this->so_HD;
+    std::cout << "\nNgay lap: " << this->ngay_lap;
+    std::cout << "\nSo tien: " << this->so_tien;
+    std::cout << "\nTinh trang thanh toan: " << this->tinh_trang_thanh_toan;
+    std::cout << "\nMa dat phong: " << this->datPhong->getMaDatPhong();
     std::cout << "\n====================================\n";
 }
+
+
+
+
 
 

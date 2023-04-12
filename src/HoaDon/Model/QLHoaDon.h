@@ -15,10 +15,8 @@ public:
     void suaHoaDon();
     void dsHoaDon();
     HoaDon* loadHoaDon(int so_HD);
-    HoaDon* loadHoaDon(std::string ngay_lap);
     void capNhatHoaDon(HoaDon* hd);
     bool existHoaDon(int so_HD);
-    bool existHoaDon(std::string ngay_lap);
 };
 
 
