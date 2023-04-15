@@ -16,6 +16,7 @@ public:
     void dsKhachHang();
     KhachHang* loadKhachHang(int maKh);
     KhachHang* loadKhachHang(std::string cccd);
+    void xemKhachHang();
     void capNhatKhachHang(KhachHang* kh);
     bool existKhachHang(int ma_kh);
     bool existKhachHang(std::string cccd);

@@ -4,8 +4,8 @@
 
 #include "HoaDon.h"
 
-HoaDon::HoaDon(int soHD, std::string ngaylap, int soTien, int tinhtrangThanhToan, int madatPhong):
-        so_HD(soHD),ngay_lap(ngaylap),so_tien(soTien),tinh_trang_thanh_toan(tinhtrangThanhToan),ma_dat_phong(madatPhong) {}
+HoaDon::HoaDon(int soHd, const std::string &ngayLap, int soTien, int tinhTrangThanhToan, DatPhong *datPhong) : so_HD(
+        soHd), ngay_lap(ngayLap), so_tien(soTien), tinh_trang_thanh_toan(tinhTrangThanhToan), datPhong(datPhong) {}
 
 void HoaDon::nhap() {
     {

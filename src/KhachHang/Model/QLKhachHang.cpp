@@ -174,6 +174,17 @@ KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
     mysql_free_result(res);
     return khachhang;
 }
+void QLKhachHang:: xemKhachHang(){
+    dsKhachHang();
+    int khach_hang_can_xem = getNumber("Nhap ma khach hang muon xem ");
+    while(!existKhachHang(khach_hang_can_xem)){
+        khach_hang_can_xem = getNumber("Sai ma khach hang! Vui long nhap lai: ");
+    }
+    KhachHang* kh;
+    kh = loadKhachHang(khach_hang_can_xem);
+    kh->hienThiThongTin();
+
+}
 void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
     ss.str("");
     ss << "UPDATE khach_hang SET ten_kh = '" << kh->getTenKh() << "', "
