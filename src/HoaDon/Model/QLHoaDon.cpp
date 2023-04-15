@@ -32,3 +32,7 @@ void QLHoaDon::capNhatHoaDon(HoaDon *hd) {
 bool QLHoaDon::existHoaDon(int so_HD) {
 
 }
+
+void QLHoaDon::xemHoaDon() {
+
+}

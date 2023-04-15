@@ -53,3 +53,7 @@ void QLKhachSan::capNhatThongTin(KhachSan* x) {
     string updateKhachSanQuery = ss.str();
     db.queryToDatabase(updateKhachSanQuery,"Cap nhat khach san thanh cong!");
 }
+
+KhachSan QLKhachSan::getKhachSan() {
+    return khachSan;
+}

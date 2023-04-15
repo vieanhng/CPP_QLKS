@@ -17,6 +17,7 @@ public:
     HoaDon* loadHoaDon(int so_HD);
     void capNhatHoaDon(HoaDon* hd);
     bool existHoaDon(int so_HD);
+    void xemHoaDon();
 };
 
 
