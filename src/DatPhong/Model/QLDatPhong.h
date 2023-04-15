@@ -22,6 +22,9 @@ public:
     DatPhong* loadDatPhong(int ma_dat_phong);
     bool existDatPhong(int ma_dat_phong);
     void capNhatDatPhong(DatPhong *dp);
+    QLPhong* getQLPhong();
+
+    const QLPhong &getQlP() const;
 };
 
 

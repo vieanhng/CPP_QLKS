@@ -176,3 +176,7 @@ void QLDatPhong::capNhatDatPhong(DatPhong *dp){
     db.queryToDatabase(updateDatPhongQuery,"Cap nhat thong tin dat phong thanh cong!\n");
 }
 
+const QLPhong &QLDatPhong::getQlP() const {
+    return qlP;
+}
+
