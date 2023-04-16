@@ -106,7 +106,7 @@ void QLPhong::suaPhong() {
 Phong* QLPhong::loadPhong(int maPhong) {
     Phong* room = NULL;
     ss.str("");
-    ss << "SELECT * FROM phong WHERE ma_phong=" << maPhong;
+    ss << "SELECT * FROM phong WHERE ma_phong= " << maPhong;
     std::string query = ss.str();
 
     MYSQL_RES* res = db.exec_query(query.c_str());
