@@ -13,12 +13,13 @@ void QLHoaDon::taoHoaDon() {
         hd->hienThiThongTin();
         std::string taoHoaDonQuery;
         ss.str("");
-        ss << "INSERT INTO hoa_don(so_hd,ngay_lap,so_tien,tinh_trang_thanh_toan) "
+        ss << "INSERT INTO hoa_don(so_hd,ngay_lap,so_tien,tinh_trang_thanh_toan,ma_dat_phong) "
               "VALUES ("
            << "'" << hd->getSoHd() << "',"
            << hd->getNgayLap() << ","
            << hd->getTinhTrangThanhToan() << ","
            << hd->getSoTien()<< ","
+           << hd->getDatPhong()<< ","
            << ")";
         taoHoaDonQuery = ss.str();
         db.queryToDatabase(taoHoaDonQuery);
