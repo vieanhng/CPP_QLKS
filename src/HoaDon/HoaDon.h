@@ -14,13 +14,13 @@ private:
     int so_HD;
     std::string ngay_lap;
     int so_tien;
-    int tinh_trang_thanh_toan;
+    std::string tinh_trang_thanh_toan;
     DatPhong * datPhong;
 public:
-    HoaDon(int soHD, std::string ngaylap,int soTien,int tinhtrangThanhToan,int madatPhong);
+    HoaDon(int soHD, std::string ngaylap,int soTien,std::string tinhtrangThanhToan,int madatPhong);
     HoaDon(){}
 
-    HoaDon(int soHd, const std::string &ngayLap, int soTien, int tinhTrangThanhToan, DatPhong *datPhong);;
+    HoaDon(int soHd, const std::string &ngayLap, int soTien, std::string tinhTrangThanhToan, DatPhong *datPhong);;
 
     ~HoaDon(){}
 
@@ -40,9 +40,9 @@ public:
 
     void setSoTien(int soTien);
 
-    int getTinhTrangThanhToan() const;
+    const std::string &getTinhTrangThanhToan() const;
 
-    void setTinhTrangThanhToan(int tinhTrangThanhToan);
+    void setTinhTrangThanhToan(const std::string &tinhTrangThanhToan);
 
     DatPhong *getDatPhong() const;
 

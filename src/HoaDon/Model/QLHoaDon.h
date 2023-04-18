@@ -7,8 +7,11 @@
 #include <iostream>
 #include "../HoaDon.h"
 #include "../../QLBase/QLBase.h"
+#include "../../DatPhong/Model/QLDatPhong.h"
 
 class QLHoaDon : protected QLBase {
+private:
+    QLDatPhong qlDp;
 public:
     void taoHoaDon();
     void xoaHoaDon();

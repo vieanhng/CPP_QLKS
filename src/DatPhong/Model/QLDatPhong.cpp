@@ -47,7 +47,26 @@ void QLDatPhong::taoDatPhong() {
 }
 
 void QLDatPhong::xoaDatPhong() {
-
+    dsDatPhong();
+    int ma_dp = getNumber("Nhap ma dat phong can xoa: ");
+    DatPhong *dp;
+    dp = loadDatPhong(ma_dp);
+    cout << "Ban chac chan muon xoa dat phong:\n";
+    dp->hienThiThongTin();
+    cout << "1. Xoa\n"
+            "2. Huy\n";
+    int choice = getNumber("Lua chon: ");
+    switch (choice) {
+        case 1:
+            ss.str("");
+            ss << "DELETE from dat_phong where ma_dat_phong=" << ma_dp;
+            db.queryToDatabase(ss.str(),"Xoa dat phong thanh cong!\n");
+            dsDatPhong();
+            break;
+        case 2:
+            break;
+    }
+    delete dp;
 }
 
 void QLDatPhong::suaDatPhong() {
@@ -173,10 +192,12 @@ void QLDatPhong::capNhatDatPhong(DatPhong *dp){
        << "ma_phong = '" << dp->getP()->getMaPhong() << "' "
        << "WHERE ma_dat_phong = " << dp->getMaDatPhong() << ";";
     string updateDatPhongQuery = ss.str();
-    db.queryToDatabase(updateDatPhongQuery,"Cap nhat thong tin dat phong thanh cong!\n");
+    db.queryToDatabase(updateDatPhongQuery);
 }
 
-const QLPhong &QLDatPhong::getQlP() const {
+ QLPhong &QLDatPhong::getQlP() {
     return qlP;
 }
+
+
 

@@ -4,7 +4,7 @@
 
 #include "HoaDon.h"
 
-HoaDon::HoaDon(int soHd, const std::string &ngayLap, int soTien, int tinhTrangThanhToan, DatPhong *datPhong) : so_HD(
+HoaDon::HoaDon(int soHd, const std::string &ngayLap, int soTien, std::string tinhTrangThanhToan, DatPhong *datPhong) : so_HD(
         soHd), ngay_lap(ngayLap), so_tien(soTien), tinh_trang_thanh_toan(tinhTrangThanhToan), datPhong(datPhong) {}
 
 void HoaDon::nhap() {
@@ -37,14 +37,6 @@ void HoaDon::setSoTien(int soTien) {
     so_tien = soTien;
 }
 
-int HoaDon::getTinhTrangThanhToan() const {
-    return tinh_trang_thanh_toan;
-}
-
-void HoaDon::setTinhTrangThanhToan(int tinhTrangThanhToan) {
-    tinh_trang_thanh_toan = tinhTrangThanhToan;
-}
-
 DatPhong *HoaDon::getDatPhong() const {
     return datPhong;
 }
@@ -62,6 +54,14 @@ void HoaDon::hienThiThongTin() {
     std::cout << "\nTinh trang thanh toan: " << this->tinh_trang_thanh_toan;
     std::cout << "\nMa dat phong: " << this->datPhong->getMaDatPhong();
     std::cout << "\n====================================\n";
+}
+
+const std::string &HoaDon::getTinhTrangThanhToan() const {
+    return tinh_trang_thanh_toan;
+}
+
+void HoaDon::setTinhTrangThanhToan(const std::string &tinhTrangThanhToan) {
+    tinh_trang_thanh_toan = tinhTrangThanhToan;
 }
 
 

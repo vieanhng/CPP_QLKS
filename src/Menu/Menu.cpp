@@ -29,13 +29,14 @@ Menu::Menu() {
                 break;
             case 3:
                 cout << "Dang thoat chuong trinh..." << endl;
+                std::exit(0);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != 4);
+    } while (choice != 3);
     delete qlDatPhong;
-    ::exit(0);
+
 }
 
 Menu::~Menu() {
@@ -106,7 +107,8 @@ void Menu::menuHoaDon() {
         cout << "\t2. Xem hoa don" << endl;
         cout << "\t3. Sua hoa don" << endl;
         cout << "\t4. Xoa hoa don" << endl;
-        cout << "\t5. Thoat" << endl;
+        cout << "\t5. Danh sach hoa don" << endl;
+        cout << "\t6. Thoat" << endl;
         cout << setfill('-') << setw(40) << "-" << endl;
 
         choice = getNumber("Lua chon:");
@@ -124,10 +126,14 @@ void Menu::menuHoaDon() {
             case 4:
                 qlHoaDon->xoaHoaDon();
                 break;
+            case 5:
+                qlHoaDon->dsHoaDon();
+                cin.ignore();
+                break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
         }
-    } while (choice != 5);
+    } while (choice != 6);
     delete qlHoaDon;
 }
 

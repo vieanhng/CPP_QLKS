@@ -161,7 +161,7 @@ void QLPhong::capNhatPhong(Phong* p){
        << "tinh_trang_phong = " << p->getTinhTrangPhong() << " "
        << "WHERE ma_phong = " << p->getMaPhong() << ";";
     string updatePhongQuery = ss.str();
-    db.queryToDatabase(updatePhongQuery,"Cap nhat phong thanh cong!");
+    db.queryToDatabase(updatePhongQuery);
 }
 
 bool QLPhong::existPhong(int ma_phong, string filter) {
