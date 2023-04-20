@@ -24,7 +24,6 @@ public:
 
     int checkLength(std::string query);
 
-    void showFullTable(const string& table);
     void queryToDatabase(const string query, const string msg = "");
 };
 

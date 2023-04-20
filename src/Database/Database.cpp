@@ -74,17 +74,3 @@ void Database::queryToDatabase(const string query,const string msg)
     }
 }
 
-// Ham hien thi thong tin bang
-void Database::showFullTable(const string& table)
-{
-    string query = "SELECT * FROM " + table + "";
-    MYSQL_RES* res = exec_query(query.c_str());
-    MYSQL_ROW row;
-    while ((row = mysql_fetch_row(res))) {
-        for (int i = 0; i < mysql_num_fields(res); i++) {
-            std::cout << row[i] << "\t";
-        }
-        std::cout << std::endl;
-    }
-    mysql_free_result(res);
-}
