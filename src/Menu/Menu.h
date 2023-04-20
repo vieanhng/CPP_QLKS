@@ -9,14 +9,8 @@
 #include "../KhachHang/Model/QLKhachHang.h"
 #include "../Phong/Model/QLPhong.h"
 #include "../KhachSan//Model/QLKhachSan.h"
-#include <iomanip>
 
 class Menu {
-private:
-    QLKhachSan qlKhachSan;
-    QLKhachHang qlKhachHang;
-    QLDatPhong qlDatPhong;
-    QLHoaDon qlHoaDon;
 public:
 
     Menu();
