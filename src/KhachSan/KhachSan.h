@@ -42,7 +42,7 @@ public:
 
     void setEmail(const std::string &email);
 
-    void hienThiThongTin();
+    void hienThiThongTin() const;
 };
 
 

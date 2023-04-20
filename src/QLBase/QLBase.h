@@ -16,10 +16,14 @@ protected:
     std::stringstream ss;
     Database db;
 public:
+    QLBase();
+
+    virtual ~QLBase();
+
     virtual void tao();
     virtual void sua();
     virtual void xoa();
-    virtual void danhSach();
+    virtual void danhSach() ;
 };
 
 

@@ -13,7 +13,7 @@ private:
         KhachSan khachSan;
 public:
     void capNhatThongTin(KhachSan* x);
-    void suaKhachSan();
+    void sua();
     KhachSan getKhachSan();
 };
 

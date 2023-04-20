@@ -4,11 +4,14 @@
 
 #include "QLHoaDon.h"
 
-
+/**
+ * Ham tao hoa don
+ */
 void QLHoaDon::tao() {
     try
     {
         HoaDon* hd = new HoaDon;
+        qlDp.danhSach();
         int ma_dp = getNumber("Nhap ma dat phong muon tao hoa don:");
         while (!qlDp.existDatPhong(ma_dp)){
             cout << "Sai ma dp vui long nhap lai!" << endl;
@@ -17,7 +20,7 @@ void QLHoaDon::tao() {
         DatPhong * dp = qlDp.loadDatPhong(ma_dp);
         hd->setDatPhong(dp);
         hd->nhap();
-        hd->setSoTien(200);
+        hd->setSoTien(calculateTimeDiff(dp->getThoiGianDat(),dp->getThoiGianTra())*dp->getP()->getGiaPhong());
         hd->setTinhTrangThanhToan("Thanh cong");
         std::string taoHoaDonQuery;
         ss.str("");
@@ -46,6 +49,9 @@ void QLHoaDon::tao() {
     }
 }
 
+/**
+ * Ham xoa hoa don
+ */
 void QLHoaDon::xoa() {
     danhSach();
     int so_hd = getNumber("Nhap so hoa don can xoa: ");
@@ -73,6 +79,9 @@ void QLHoaDon::xoa() {
     delete hd;
 }
 
+/**
+ * Ham sua hoa don
+ */
 void QLHoaDon::sua() {
     try{
         int choice;
@@ -105,7 +114,9 @@ void QLHoaDon::sua() {
     }
 }
 
-
+/**
+ * Hien thi danh sach hoa don
+ */
 void QLHoaDon::danhSach() {
     try {
         tabulate::Table hoaDonTable;
@@ -126,6 +137,11 @@ void QLHoaDon::danhSach() {
     }
 }
 
+/**
+ * Load hoá đơn từ database
+ * @param soHD
+ * @return
+ */
 HoaDon *QLHoaDon::loadHoaDon(int soHD) {
     HoaDon* hd = NULL;
     ss.str("");
@@ -149,6 +165,10 @@ HoaDon *QLHoaDon::loadHoaDon(int soHD) {
     return hd;
 }
 
+/**
+ * Cap nhat hoa don vao database
+ * @param hd
+ */
 void QLHoaDon::capNhatHoaDon(HoaDon *hd) {
     ss.str("");
     ss << "UPDATE hoa_don SET "
@@ -170,6 +190,9 @@ bool QLHoaDon::existHoaDon(int so_HD) {
     return false;
 }
 
+/**
+ * Xem 1 hoa don
+ */
 void QLHoaDon::xemHoaDon() {
     danhSach();
     int so_hd = getNumber("Nhap so hoa don can xem: ");

@@ -4,6 +4,9 @@
 
 #include "QLKhachHang.h"
 
+/**
+ * Tao khach hang
+ */
 void QLKhachHang::tao() {
     try
     {
@@ -33,6 +36,9 @@ void QLKhachHang::tao() {
     }
 }
 
+/**
+ * Xoa khach hang
+ */
 void QLKhachHang::xoa() {
     danhSach();
     int khach_hang_can_xoa = getNumber("Nhap ma khach hang can xoa: ");
@@ -56,6 +62,9 @@ void QLKhachHang::xoa() {
     delete kh;
 }
 
+/**
+ * Sua khach hang
+ */
 void QLKhachHang::sua() {
     try{
         int choice;
@@ -105,9 +114,9 @@ void QLKhachHang::sua() {
     }
 }
 
-
-
-
+/**
+ * Hien thi danh sach khach hang
+ */
 void QLKhachHang::danhSach() {
     try {
         tabulate::Table khachhangTable;
@@ -131,6 +140,11 @@ void QLKhachHang::danhSach() {
 
 }
 
+/**
+ * load khach hang bang khach hang
+ * @param maKh
+ * @return
+ */
 KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     KhachHang* khachhang = nullptr;
     ss.str("");
@@ -152,6 +166,12 @@ KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     mysql_free_result(res);
     return khachhang;
 }
+
+/**
+ * load khach hang bang cccd
+ * @param cccd
+ * @return
+ */
 KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
     KhachHang* khachhang = nullptr;
     ss.str("");
@@ -174,6 +194,10 @@ KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
     mysql_free_result(res);
     return khachhang;
 }
+
+/**
+ * Hien thi thong tin 1 khach hang
+ */
 void QLKhachHang:: xemKhachHang(){
     danhSach();
     int khach_hang_can_xem = getNumber("Nhap ma khach hang muon xem ");
@@ -185,6 +209,11 @@ void QLKhachHang:: xemKhachHang(){
     kh->hienThi();
 
 }
+
+/**
+ * Cap nhat thong tin khach hang vao database
+ * @param kh
+ */
 void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
     ss.str("");
     ss << "UPDATE khach_hang SET ten_kh = '" << kh->getTenKh() << "', "
@@ -195,6 +224,12 @@ void QLKhachHang::capNhatKhachHang(KhachHang *kh) {
     string updateKhachHangQuery = ss.str();
     db.queryToDatabase(updateKhachHangQuery,"Cap nhat thong tin khach hang thanh cong!");
 }
+
+/**
+ * Kiem tra ton tai khach hang trong database bang ma khach hang
+ * @param ma_kh
+ * @return
+ */
 bool QLKhachHang::existKhachHang(int ma_kh) {
     ss.str("");
     ss << "Select ma_kh from khach_hang where ma_kh=" << ma_kh;
@@ -205,6 +240,11 @@ bool QLKhachHang::existKhachHang(int ma_kh) {
 
 }
 
+/**
+ * Kiem tra ton tai khach hang bang cccd
+ * @param cccd
+ * @return
+ */
 bool QLKhachHang::existKhachHang(std::string cccd) {
     ss.str("");
     ss << "Select cccd from khach_hang where cccd= '" <<  cccd << "'";

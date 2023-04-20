@@ -17,8 +17,8 @@ private:
     std::string tinh_trang_thanh_toan;
     DatPhong * datPhong;
 public:
-    HoaDon(int soHD, std::string ngaylap,int soTien,std::string tinhtrangThanhToan,int madatPhong);
-    HoaDon(){}
+
+    HoaDon();
 
     HoaDon(int soHd, const std::string &ngayLap, int soTien, std::string tinhTrangThanhToan, DatPhong *datPhong);;
 

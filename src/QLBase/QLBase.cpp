@@ -13,3 +13,9 @@ void QLBase::xoa() {}
 
 void QLBase::danhSach() {}
 
+QLBase::QLBase() {}
+
+QLBase::~QLBase() {
+
+}
+

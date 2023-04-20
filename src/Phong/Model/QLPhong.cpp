@@ -4,7 +4,9 @@
 
 #include "QLPhong.h"
 
-
+/**
+ * tao phong
+ */
 void QLPhong::tao() {
     try
     {
@@ -24,7 +26,7 @@ void QLPhong::tao() {
         db.queryToDatabase(taoPhongQuery);
         delete room;
         danhSach();
-        std::cout << "Tao phong thanh cong!";
+        std::cout << "Tao phong thanh cong!\n";
     }
     catch (const char* msg)
     {
@@ -32,6 +34,9 @@ void QLPhong::tao() {
     }
 }
 
+/**
+ * xoa phong
+ */
 void QLPhong::xoa() {
     danhSach();
     int phong_can_xoa = getNumber("Nhap ma phong can xoa: ");
@@ -55,6 +60,9 @@ void QLPhong::xoa() {
     delete p;
 }
 
+/**
+ * sua phong
+ */
 void QLPhong::sua() {
     try{
         int choice;
@@ -66,6 +74,7 @@ void QLPhong::sua() {
         Phong* p;
         p = loadPhong(phong_can_sua);
         do {
+            std::system("clear");
             p->hienThi();
             cout << "Chon truong muon sua:\n"
                     "1.Loai phong\n"
@@ -101,6 +110,11 @@ void QLPhong::sua() {
     }
 }
 
+/**
+ * load phong tu database
+ * @param maPhong
+ * @return
+ */
 Phong* QLPhong::loadPhong(int maPhong) {
     Phong* room = NULL;
     ss.str("");
@@ -123,7 +137,10 @@ Phong* QLPhong::loadPhong(int maPhong) {
     return room;
 }
 
-
+/**
+ * hien thi danh sach phong
+ * @param where
+ */
 void QLPhong::danhSach(std::string where){
     try {
         tabulate::Table phongTable;
@@ -147,10 +164,19 @@ void QLPhong::danhSach(std::string where){
     }
 }
 
+/**
+ * get hien thi tinh trang phong
+ * @param tinhTrangPhong
+ * @return
+ */
 string QLPhong::tinhTrangPhong(int tinhTrangPhong) {
     return tinhTrangPhong ? "Con" : "Het";
 }
 
+/**
+ * Cap nhat phong vao database
+ * @param p
+ */
 void QLPhong::capNhatPhong(Phong* p){
     ss.str("");
     ss << "UPDATE phong SET loai_phong = '" << p->getLoaiPhong() << "', "
@@ -162,6 +188,12 @@ void QLPhong::capNhatPhong(Phong* p){
     db.queryToDatabase(updatePhongQuery);
 }
 
+/**
+ * Kiem tra ton tai phong trong database
+ * @param ma_phong
+ * @param filter
+ * @return
+ */
 bool QLPhong::existPhong(int ma_phong, string filter) {
     ss.str("");
     ss << "Select ma_phong from phong where ma_phong=" << ma_phong;

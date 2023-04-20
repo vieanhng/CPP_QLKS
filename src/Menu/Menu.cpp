@@ -4,6 +4,9 @@
 
 #include "Menu.h"
 
+/**
+ * ham khoi tao menu
+ */
 Menu::Menu() {
     int choice;
     QLDatPhong * qlDatPhong = new QLDatPhong();
@@ -39,10 +42,16 @@ Menu::Menu() {
 
 }
 
+/**
+ * ham huy
+ */
 Menu::~Menu() {
 
 }
 
+/**
+ * menu quan ly phong
+ */
 void Menu::menuPhong() {
     int choice;
     QLPhong *qlPhong = new QLPhong;
@@ -94,6 +103,9 @@ void Menu::menuPhong() {
     delete qlPhong;
 }
 
+/**
+ * menu quan ly hoa don
+ */
 void Menu::menuHoaDon() {
     int choice;
     QLHoaDon * qlHoaDon = new QLHoaDon();
@@ -137,6 +149,9 @@ void Menu::menuHoaDon() {
     delete qlHoaDon;
 }
 
+/**
+ * menu thong tin khach san
+ */
 void Menu::menuTtKhachSan() {
     int choice;
     QLKhachSan * qlKhachSan = new QLKhachSan();
@@ -155,7 +170,7 @@ void Menu::menuTtKhachSan() {
 
         switch(choice) {
             case 1:
-                qlKhachSan->suaKhachSan();
+                qlKhachSan->sua();
                 break;
             case 2:
                 qlKhachSan->getKhachSan().hienThiThongTin();
@@ -167,6 +182,9 @@ void Menu::menuTtKhachSan() {
     delete qlKhachSan;
 }
 
+/**
+ * menu quan ly khach hang
+ */
 void Menu::menuKhachHang() {
     int choice;
     QLKhachHang * qlKhachHang = new QLKhachHang();
@@ -210,6 +228,9 @@ void Menu::menuKhachHang() {
     delete qlKhachHang;
 }
 
+/**
+ * menu quan ly dat phong
+ */
 void Menu::menuDatPhong() {
     int choice;
     QLDatPhong * qlDatPhong = new QLDatPhong();
@@ -247,6 +268,9 @@ void Menu::menuDatPhong() {
     delete qlDatPhong;
 }
 
+/**
+ * menu quan ly khach san
+ */
 void Menu::menuQLKhachSan() {
     int choice;
     do {

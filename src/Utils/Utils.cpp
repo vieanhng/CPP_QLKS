@@ -136,3 +136,13 @@ const std::string getDate(const std::string &msg) {
     return s;
 }
 
+float calculateTimeDiff(const std::string &time1, const std::string &time2) {
+    struct std::tm tm1 = {0}, tm2 = {0};
+    std::istringstream ss1(time1), ss2(time2);
+    ss1 >> std::get_time(&tm1, "%Y-%m-%d %H:%M");
+    ss2 >> std::get_time(&tm2, "%Y-%m-%d %H:%M");
+    std::time_t t1 = std::mktime(&tm1),
+    t2 = std::mktime(&tm2);
+
+    return (float)(t2 - t1) / 3600; // return difference in hours
+}

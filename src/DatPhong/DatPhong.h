@@ -24,10 +24,7 @@ public:
     DatPhong(int maDatPhong, const std::string &thoiGianDat, const std::string &thoiGianTra,
              const std::string &tinhTrangDatPhong, KhachHang *kh, Phong *p);
 
-
     virtual ~DatPhong();
-
-
 
     int getMaDatPhong() const;
 

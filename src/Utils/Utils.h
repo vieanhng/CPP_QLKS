@@ -10,6 +10,10 @@
 #include <climits>
 #include <vector>
 #include <regex>
+#include "sstream"
+#include "iomanip"
+#include <ctime>
+
 
 
 const std::string getString(const std::string& msg, int maxLen);
@@ -25,5 +29,7 @@ std::vector<int> stringsToInts(std::vector<std::string> strs);
 int getNumberFromProvided(std::vector<std::string> strs);
 
 bool userChoice();
+
+float calculateTimeDiff(const std::string& time1, const std::string& time2) ;
 
 #endif //CPP_QLKS_UTILS_H

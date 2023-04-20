@@ -4,7 +4,10 @@
 
 #include "QLKhachSan.h"
 
-void QLKhachSan::suaKhachSan() {
+/**
+ * Sua thong tin khach san
+ */
+void QLKhachSan::sua() {
     try{
         int choice;
         KhachSan* x=new KhachSan();
@@ -44,6 +47,10 @@ void QLKhachSan::suaKhachSan() {
     }
 }
 
+/**
+ * Cap nhat thong tin vao database
+ * @param x
+ */
 void QLKhachSan::capNhatThongTin(KhachSan* x) {
     ss.str("");
     ss << "UPDATE khach_san SET ten_ks = '" << x->getTenKs() << "', "
@@ -54,6 +61,10 @@ void QLKhachSan::capNhatThongTin(KhachSan* x) {
     db.queryToDatabase(updateKhachSanQuery,"Cap nhat khach san thanh cong!");
 }
 
+/**
+ * get khach san
+ * @return
+ */
 KhachSan QLKhachSan::getKhachSan() {
     return khachSan;
 }
