@@ -32,4 +32,6 @@ bool userChoice();
 
 float calculateTimeDiff(const std::string& time1, const std::string& time2) ;
 
+void clear();
+
 #endif //CPP_QLKS_UTILS_H

@@ -8,9 +8,11 @@
  * ham khoi tao menu
  */
 Menu::Menu() {
+    
     int choice;
     QLDatPhong * qlDatPhong = new QLDatPhong();
     do {
+        clear();
         // Display the menu with a border
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(11) << " " << "MENU QL KHACH SAN" << setfill(' ') << setw(11) << "|" << endl;
@@ -56,6 +58,7 @@ void Menu::menuPhong() {
     int choice;
     QLPhong *qlPhong = new QLPhong;
     do {
+        clear();
         // Display the menu with a border
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(12) << " " << "MENU QL TT PHONG" << setfill(' ') << setw(12) << "|" << endl;
@@ -87,7 +90,7 @@ void Menu::menuPhong() {
                     std::cout << "1. Phong trong" << std::endl;
                     std::cout << "2. Phong da dat" << std::endl;
                     std::cout << "3. Thoat" << std::endl;
-                    tinh_trang_phong = getNumber("Nhap tinh trang phong muon hien thi: ");
+                    tinh_trang_phong = getNumber("Lua chon: ");
                     if (tinh_trang_phong == 1) {
                         where = "tinh_trang_phong = 1";
                     }        else{
@@ -111,6 +114,7 @@ void Menu::menuHoaDon() {
     QLHoaDon * qlHoaDon = new QLHoaDon();
 
     do {
+        clear();
         // Display the menu with a border
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(11) << " " << "MENU QL TT HOA DON" << setfill(' ') << setw(10) << "|" << endl;
@@ -157,6 +161,7 @@ void Menu::menuTtKhachSan() {
     QLKhachSan * qlKhachSan = new QLKhachSan();
 
     do {
+        clear();
         // Display the menu with a border
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(10) << " " << "MENU QL TT KHACH SAN" << setfill(' ') << setw(10) << "|" << endl;
@@ -190,6 +195,7 @@ void Menu::menuKhachHang() {
     QLKhachHang * qlKhachHang = new QLKhachHang();
 
     do {
+        clear();
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(9) << " " << "MENU QL TT KHACH HANG" << setfill(' ') << setw(9) << "|" << endl;
         cout << setfill('-') << setw(40) << "-" << endl;
@@ -236,6 +242,7 @@ void Menu::menuDatPhong() {
     QLDatPhong * qlDatPhong = new QLDatPhong();
 
     do {
+        clear();
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(10) << " " << "MENU QL TT DAT PHONG" << setfill(' ') << setw(10) << "|" << endl;
         cout << setfill('-') << setw(40) << "-" << endl;
@@ -274,6 +281,7 @@ void Menu::menuDatPhong() {
 void Menu::menuQLKhachSan() {
     int choice;
     do {
+        clear();
         cout << setfill('-') << setw(40) << "-" << endl;
         cout << "|" << setfill(' ') << setw(11) << " " << "MENU QL KHACH SAN" << setfill(' ') << setw(11) << "|" << endl;
         cout << setfill('-') << setw(40) << "-" << endl;
@@ -303,8 +311,7 @@ void Menu::menuQLKhachSan() {
             case 5:
                 this->menuTtKhachSan();
                 break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
+           
         }
     } while (choice != 6);
 }
