@@ -6,10 +6,11 @@
 #define CPP_QLKS_KHACHHANG_H
 #include <iostream>
 #include "../Utils/Utils.h"
+#include "../DoiTuong/DoiTuong.h"
 
 
 
-class KhachHang {
+class KhachHang: public DoiTuong{
 private:
     int ma_kh;
     std::string ten_kh;
@@ -44,7 +45,7 @@ public:
 
     void setEmail(const std::string &email);
 
-    void hienThiThongTin();
+    void hienThi();
 
     void nhap();
 

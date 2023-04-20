@@ -8,11 +8,10 @@
 #include <mysql.h>
 #include "vector"
 #include "tabulate/table.hpp"
-#include <cstdlib>  // for system()
-
 
 using namespace std;
 
+// Class Database
 class Database {
 private:
     MYSQL* connection;

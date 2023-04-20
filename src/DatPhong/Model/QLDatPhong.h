@@ -15,10 +15,10 @@ private:
     QLKhachHang qlKH;
     QLPhong qlP;
 public:
-    void taoDatPhong();
-    void xoaDatPhong();
-    void suaDatPhong();
-    void dsDatPhong(std::string where = "");
+    void tao();
+    void xoa();
+    void sua();
+    void danhSach(std::string where = "");
     DatPhong* loadDatPhong(int ma_dat_phong);
     bool existDatPhong(int ma_dat_phong);
     void capNhatDatPhong(DatPhong *dp);

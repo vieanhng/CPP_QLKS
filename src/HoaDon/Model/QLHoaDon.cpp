@@ -5,7 +5,7 @@
 #include "QLHoaDon.h"
 
 
-void QLHoaDon::taoHoaDon() {
+void QLHoaDon::tao() {
     try
     {
         HoaDon* hd = new HoaDon;
@@ -30,14 +30,14 @@ void QLHoaDon::taoHoaDon() {
            << ")";
         taoHoaDonQuery = ss.str();
         db.queryToDatabase(taoHoaDonQuery);
-        hd->hienThiThongTin();
+        hd->hienThi();
         dp->setTinhTrangDatPhong("Da lap hoa don");
         dp->getP()->setTinhTrangPhong(1);
         qlDp.capNhatDatPhong(dp);
         qlDp.getQlP().capNhatPhong(dp->getP());
         delete hd;
         delete dp;
-        dsHoaDon();
+        danhSach();
         std::cout << "Tao hoa don thanh cong!"<< std::endl;
     }
     catch (const char* msg)
@@ -46,8 +46,8 @@ void QLHoaDon::taoHoaDon() {
     }
 }
 
-void QLHoaDon::xoaHoaDon() {
-    dsHoaDon();
+void QLHoaDon::xoa() {
+    danhSach();
     int so_hd = getNumber("Nhap so hoa don can xoa: ");
     while(!existHoaDon(so_hd)){
         cout << "Hoa don khong ton tai!"<< endl;
@@ -56,7 +56,7 @@ void QLHoaDon::xoaHoaDon() {
     HoaDon *hd;
     hd = loadHoaDon(so_hd);
     cout << "Ban chac chan muon hoa don:\n";
-    hd->hienThiThongTin();
+    hd->hienThi();
     cout << "1. Xoa\n"
             "2. Huy\n";
     int choice = getNumber("Lua chon: ");
@@ -65,7 +65,7 @@ void QLHoaDon::xoaHoaDon() {
             ss.str("");
             ss << "DELETE from hoa_don where so_hd=" << so_hd;
             db.queryToDatabase(ss.str(),"Xoa hoa don thanh cong!\n");
-            dsHoaDon();
+            danhSach();
             break;
         case 2:
             break;
@@ -73,12 +73,12 @@ void QLHoaDon::xoaHoaDon() {
     delete hd;
 }
 
-void QLHoaDon::suaHoaDon() {
+void QLHoaDon::sua() {
     try{
         int choice;
         HoaDon* hd=new HoaDon();
         do {
-            hd->hienThiThongTin();
+            hd->hienThi();
             cout << "Chon truong muon sua:\n"
                     "1.Ngay lap\n"
                     "2.Tinh trang thanh toan\n"
@@ -106,7 +106,7 @@ void QLHoaDon::suaHoaDon() {
 }
 
 
-void QLHoaDon::dsHoaDon() {
+void QLHoaDon::danhSach() {
     try {
         tabulate::Table hoaDonTable;
         cout << "DANH SACH HOA DON"<<endl;
@@ -171,7 +171,7 @@ bool QLHoaDon::existHoaDon(int so_HD) {
 }
 
 void QLHoaDon::xemHoaDon() {
-    dsHoaDon();
+    danhSach();
     int so_hd = getNumber("Nhap so hoa don can xem: ");
     while(!existHoaDon(so_hd)){
         cout << "Hoa don khong ton tai!"<< endl;
@@ -179,7 +179,7 @@ void QLHoaDon::xemHoaDon() {
     }
     HoaDon *hd;
     hd = loadHoaDon(so_hd);
-    hd->hienThiThongTin();
+    hd->hienThi();
 }
 
 

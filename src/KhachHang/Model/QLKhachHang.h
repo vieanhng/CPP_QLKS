@@ -10,10 +10,10 @@
 
 class QLKhachHang : protected QLBase {
 public:
-    void taoKhachHang();
-    void xoaKhachHang();
-    void suaKhachHang();
-    void dsKhachHang();
+    void tao();
+    void xoa();
+    void sua();
+    void danhSach();
     KhachHang* loadKhachHang(int maKh);
     KhachHang* loadKhachHang(std::string cccd);
     void xemKhachHang();

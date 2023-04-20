@@ -22,7 +22,7 @@ Menu::Menu() {
 
         switch(choice) {
             case 1:
-                qlDatPhong->taoDatPhong();
+                qlDatPhong->tao();
                 break;
             case 2:
                 this->menuQLKhachSan();
@@ -63,18 +63,18 @@ void Menu::menuPhong() {
 
         switch (choice) {
             case 1:
-                qlPhong->taoPhong();
+                qlPhong->tao();
                 break;
             case 2:
-                qlPhong->suaPhong();
+                qlPhong->sua();
                 break;
             case 3:
-                qlPhong->xoaPhong();
+                qlPhong->xoa();
             case 4:
                 int tinh_trang_phong;
                 std::string where;
                 do {
-                    std::cout << "Xem danh sach phong: ";
+                    std::cout << "Xem danh sach phong:\n ";
                     std::cout << "1. Phong trong" << std::endl;
                     std::cout << "2. Phong da dat" << std::endl;
                     std::cout << "3. Thoat" << std::endl;
@@ -85,7 +85,7 @@ void Menu::menuPhong() {
                         where = "tinh_trang_phong = 0";
                     }
 
-                    qlPhong->danhSachPhong(where);
+                    qlPhong->danhSach(where);
                 }while(tinh_trang_phong!=3);
                 break;
 
@@ -115,19 +115,19 @@ void Menu::menuHoaDon() {
 
         switch(choice) {
             case 1:
-                qlHoaDon->taoHoaDon();
+                qlHoaDon->tao();
                 break;
             case 2:
                 qlHoaDon->xemHoaDon();
                 break;
             case 3:
-                qlHoaDon->suaHoaDon();
+                qlHoaDon->sua();
                 break;
             case 4:
-                qlHoaDon->xoaHoaDon();
+                qlHoaDon->xoa();
                 break;
             case 5:
-                qlHoaDon->dsHoaDon();
+                qlHoaDon->danhSach();
                 cin.ignore();
                 break;
             default:
@@ -187,16 +187,16 @@ void Menu::menuKhachHang() {
 
         switch(choice) {
             case 1:
-                qlKhachHang->taoKhachHang();
+                qlKhachHang->tao();
                 break;
             case 2:
-                qlKhachHang->suaKhachHang();
+                qlKhachHang->sua();
                 break;
             case 3:
-                qlKhachHang->xoaKhachHang();
+                qlKhachHang->xoa();
                 break;
             case 4:
-                qlKhachHang->dsKhachHang();
+                qlKhachHang->danhSach();
                 break;
             case 5:
                 qlKhachHang->xemKhachHang();
@@ -229,16 +229,16 @@ void Menu::menuDatPhong() {
 
         switch(choice) {
             case 1:
-                qlDatPhong->taoDatPhong();
+                qlDatPhong->tao();
                 break;
             case 2:
-                qlDatPhong->suaDatPhong();
+                qlDatPhong->sua();
                 break;
             case 3:
-               qlDatPhong->xoaDatPhong();
+               qlDatPhong->xoa();
                 break;
             case 4:
-                qlDatPhong->dsDatPhong();
+                qlDatPhong->danhSach();
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;

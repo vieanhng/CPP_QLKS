@@ -13,10 +13,10 @@ class QLHoaDon : protected QLBase {
 private:
     QLDatPhong qlDp;
 public:
-    void taoHoaDon();
-    void xoaHoaDon();
-    void suaHoaDon();
-    void dsHoaDon();
+    void tao();
+    void xoa();
+    void sua();
+    void danhSach();
     HoaDon* loadHoaDon(int so_HD);
     void capNhatHoaDon(HoaDon* hd);
     bool existHoaDon(int so_HD);

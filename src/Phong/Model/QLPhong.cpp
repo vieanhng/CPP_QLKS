@@ -5,12 +5,12 @@
 #include "QLPhong.h"
 
 
-bool QLPhong::taoPhong() {
+void QLPhong::tao() {
     try
     {
         Phong* room = new Phong;
         room->nhap();
-        room->hienThiThongTin();
+        room->hienThi();
         std::string taoPhongQuery;
         ss.str("");
         ss << "INSERT INTO phong(loai_phong,so_phong,gia_phong,tinh_trang_phong) "
@@ -23,24 +23,22 @@ bool QLPhong::taoPhong() {
         taoPhongQuery = ss.str();
         db.queryToDatabase(taoPhongQuery);
         delete room;
-        danhSachPhong();
+        danhSach();
         std::cout << "Tao phong thanh cong!";
     }
     catch (const char* msg)
     {
         std::cout << msg << '\n';
-        return false;
     }
-    return true;
 }
 
-void QLPhong::xoaPhong() {
-    danhSachPhong();
+void QLPhong::xoa() {
+    danhSach();
     int phong_can_xoa = getNumber("Nhap ma phong can xoa: ");
     Phong *p;
     p = loadPhong(phong_can_xoa);
     cout << "Ban chac chan muon xoa phong:\n";
-    p->hienThiThongTin();
+    p->hienThi();
     cout << "1. Xoa\n"
             "2. Huy\n";
     int choice = getNumber("Lua chon: ");
@@ -49,7 +47,7 @@ void QLPhong::xoaPhong() {
             ss.str("");
             ss << "DELETE from phong where ma_phong=" << phong_can_xoa;
             db.queryToDatabase(ss.str(),"Xoa phong thanh cong!\n");
-            danhSachPhong();
+            danhSach();
             break;
         case 2:
             break;
@@ -57,10 +55,10 @@ void QLPhong::xoaPhong() {
     delete p;
 }
 
-void QLPhong::suaPhong() {
+void QLPhong::sua() {
     try{
         int choice;
-        danhSachPhong();
+        danhSach();
         int phong_can_sua = getNumber("Nhap ma phong can sua: ");
         while(!existPhong(phong_can_sua)){
             phong_can_sua = getNumber("Sai ma phong! Vui long nhap lai: ");
@@ -68,7 +66,7 @@ void QLPhong::suaPhong() {
         Phong* p;
         p = loadPhong(phong_can_sua);
         do {
-            p->hienThiThongTin();
+            p->hienThi();
             cout << "Chon truong muon sua:\n"
                     "1.Loai phong\n"
                     "2.So phong\n"
@@ -126,7 +124,7 @@ Phong* QLPhong::loadPhong(int maPhong) {
 }
 
 
-void QLPhong::danhSachPhong(std::string where){
+void QLPhong::danhSach(std::string where){
     try {
         tabulate::Table phongTable;
         cout << "DANH SACH PHONG"<<endl;

@@ -45,7 +45,7 @@ void HoaDon::setDatPhong(DatPhong *datPhong) {
     HoaDon::datPhong = datPhong;
 }
 
-void HoaDon::hienThiThongTin() {
+void HoaDon::hienThi() {
     std::cout << "Thong tin hoa don:";
     std::cout << "\n====================================\n";
     std::cout << "So hoa don: " << this->so_HD;

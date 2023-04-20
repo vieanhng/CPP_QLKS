@@ -4,19 +4,21 @@
 
 #include "QLDatPhong.h"
 
-
-void QLDatPhong::taoDatPhong() {
+/**
+ * Tao dat phong
+ */
+void QLDatPhong::tao() {
     std::string cccd;
     KhachHang *kh;
     Phong* p;
     DatPhong* dp = new DatPhong;
     cccd = getString("Nhap can cuoc cong dan: ",20);
     if(!qlKH.existKhachHang(cccd)){
-        qlKH.taoKhachHang();
+        qlKH.tao();
     }
     kh = qlKH.loadKhachHang(cccd);
     dp->setKh(kh);
-    qlP.danhSachPhong("tinh_trang_phong = 1");
+    qlP.danhSach("tinh_trang_phong = 1");
     int ma_phong = getNumber("Nhap ma phong muon chon: ");
     while(!qlP.existPhong(ma_phong, "tinh_trang_phong=1")){
         ma_phong = getNumber("Sai ma phong! Vui long nhap lai: ");
@@ -25,7 +27,7 @@ void QLDatPhong::taoDatPhong() {
     dp->setP(p);
     dp->nhap();
     dp->setTinhTrangDatPhong("Thanh cong");
-    dp->hienThiThongTin();
+    dp->hienThi();
     std::string datPhongQuery;
     ss.str("");
     ss << "INSERT INTO dat_phong(thoi_gian_dat,thoi_gian_tra,tinh_trang_dat_phong,ma_phong,ma_kh) "
@@ -40,19 +42,22 @@ void QLDatPhong::taoDatPhong() {
     db.queryToDatabase(datPhongQuery);
     p->setTinhTrangPhong(0);
     qlP.capNhatPhong(p);
-    dp->hienThiThongTin();
+    dp->hienThi();
     delete p;
     delete dp;
     delete kh;
 }
 
-void QLDatPhong::xoaDatPhong() {
-    dsDatPhong();
+/**
+ * Xoa dat phong
+ */
+void QLDatPhong::xoa() {
+    danhSach();
     int ma_dp = getNumber("Nhap ma dat phong can xoa: ");
     DatPhong *dp;
     dp = loadDatPhong(ma_dp);
     cout << "Ban chac chan muon xoa dat phong:\n";
-    dp->hienThiThongTin();
+    dp->hienThi();
     cout << "1. Xoa\n"
             "2. Huy\n";
     int choice = getNumber("Lua chon: ");
@@ -61,7 +66,7 @@ void QLDatPhong::xoaDatPhong() {
             ss.str("");
             ss << "DELETE from dat_phong where ma_dat_phong=" << ma_dp;
             db.queryToDatabase(ss.str(),"Xoa dat phong thanh cong!\n");
-            dsDatPhong();
+            danhSach();
             break;
         case 2:
             break;
@@ -69,10 +74,13 @@ void QLDatPhong::xoaDatPhong() {
     delete dp;
 }
 
-void QLDatPhong::suaDatPhong() {
+/**
+ * Sua dat phong
+ */
+void QLDatPhong::sua() {
     try{
         int choice;
-        dsDatPhong();
+        danhSach();
         int ma_dp = getNumber("Nhap ma dat phong can sua: ");
         while(!existDatPhong(ma_dp)){
             ma_dp = getNumber("Sai ma dat phong! Vui long nhap lai: ");
@@ -83,7 +91,7 @@ void QLDatPhong::suaDatPhong() {
         int ma_phong_cu = dp->getP()->getMaPhong();
         int ma_phong;
         do {
-            dp->hienThiThongTin();
+            dp->hienThi();
             cout <<"\n Chon truong muon sua:\n"
                    "1.Ngay tra phong\n"
                    "2.Doi phong\n"
@@ -97,7 +105,7 @@ void QLDatPhong::suaDatPhong() {
                     break;
                 case 2:
                     std::cout<<"Danh sach phong trong\n";
-                    qlP.danhSachPhong("tinh_trang_phong=1");
+                    qlP.danhSach("tinh_trang_phong=1");
                     ma_phong = getNumber("Nhap ma phong muon chon: ");
                     while(!qlP.existPhong(ma_phong, "tinh_trang_phong=1")){
                         ma_phong = getNumber("Sai ma phong! Vui long nhap lai: ");
@@ -127,7 +135,11 @@ void QLDatPhong::suaDatPhong() {
 
 }
 
-void QLDatPhong::dsDatPhong(string where) {
+/**
+ * Danh sach dat phong
+ * @param where
+ */
+void QLDatPhong::danhSach(std::string where) {
     try {
         tabulate::Table datPhongTable;
         cout << "DANH SACH DAT PHONG"<<endl;
@@ -152,6 +164,11 @@ void QLDatPhong::dsDatPhong(string where) {
     }
 }
 
+/**
+ * Load dat phong tu database vao doi tuong dat phong
+ * @param ma_dat_phong
+ * @return
+ */
 DatPhong *QLDatPhong::loadDatPhong(int ma_dat_phong) {
     DatPhong* dp = NULL;
     ss.str("");
@@ -176,6 +193,11 @@ DatPhong *QLDatPhong::loadDatPhong(int ma_dat_phong) {
     return dp;
 }
 
+/**
+ * Kiem tra ton tai dat phong
+ * @param ma_dat_phong
+ * @return
+ */
 bool QLDatPhong::existDatPhong(int ma_dat_phong) {
     ss.str("");
     ss << "Select ma_dat_phong from dat_phong where ma_dat_phong=" << ma_dat_phong;
@@ -185,6 +207,10 @@ bool QLDatPhong::existDatPhong(int ma_dat_phong) {
     return false;
 }
 
+/**
+ * Cap nhat thong tin dat phong vao database
+ * @param dp
+ */
 void QLDatPhong::capNhatDatPhong(DatPhong *dp){
     ss.str("");
     ss << "UPDATE dat_phong SET "
@@ -195,6 +221,10 @@ void QLDatPhong::capNhatDatPhong(DatPhong *dp){
     db.queryToDatabase(updateDatPhongQuery);
 }
 
+/**
+ * get QL Phong
+ * @return
+ */
  QLPhong &QLDatPhong::getQlP() {
     return qlP;
 }

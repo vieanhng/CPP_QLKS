@@ -17,7 +17,8 @@ protected:
     Database db;
 public:
     virtual void tao();
-    virtual void load();
+    virtual void sua();
+    virtual void xoa();
     virtual void danhSach();
 };
 

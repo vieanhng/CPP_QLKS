@@ -58,6 +58,8 @@ int Database::checkLength(string query)
     return len;
 }
 
+
+// Ham chay cau lenh sql
 void Database::queryToDatabase(const string query,const string msg)
 {
     try
@@ -72,6 +74,7 @@ void Database::queryToDatabase(const string query,const string msg)
     }
 }
 
+// Ham hien thi thong tin bang
 void Database::showFullTable(const string& table)
 {
     string query = "SELECT * FROM " + table + "";

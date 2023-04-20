@@ -4,12 +4,12 @@
 
 #include "QLKhachHang.h"
 
-void QLKhachHang::taoKhachHang() {
+void QLKhachHang::tao() {
     try
     {
         KhachHang* khachhang = new KhachHang;
         khachhang->nhap();
-        khachhang->hienThiThongTin();
+        khachhang->hienThi();
         std::string taoKhachHangQuery;
         ss.str("");
         ss << "INSERT INTO khach_hang(ten_KH,dia_chi,sdt,email,cccd) "
@@ -23,7 +23,7 @@ void QLKhachHang::taoKhachHang() {
         taoKhachHangQuery = ss.str();
         db.queryToDatabase(taoKhachHangQuery);
         delete khachhang;
-        dsKhachHang();
+        danhSach();
         cout << "Tao thong tin khach hang thanh cong!";
 
     }
@@ -33,13 +33,13 @@ void QLKhachHang::taoKhachHang() {
     }
 }
 
-void QLKhachHang::xoaKhachHang() {
-    dsKhachHang();
+void QLKhachHang::xoa() {
+    danhSach();
     int khach_hang_can_xoa = getNumber("Nhap ma khach hang can xoa: ");
     KhachHang *kh;
     kh = loadKhachHang(khach_hang_can_xoa);
     cout << "Ban chac chan muon xoa khach hang:\n";
-    kh->hienThiThongTin();
+    kh->hienThi();
     cout << "\n1. Xoa\n"
             "2. Huy\n";
     int choice = getNumber("Lua chon: ");
@@ -48,7 +48,7 @@ void QLKhachHang::xoaKhachHang() {
             ss.str("");
             ss << "DELETE from khach_hang where ma_kh=" << khach_hang_can_xoa;
             db.queryToDatabase(ss.str(),"Xoa khach hang thanh cong!\n");
-            dsKhachHang();
+            danhSach();
             break;
         case 2:
             break;
@@ -56,10 +56,10 @@ void QLKhachHang::xoaKhachHang() {
     delete kh;
 }
 
-void QLKhachHang::suaKhachHang() {
+void QLKhachHang::sua() {
     try{
         int choice;
-        dsKhachHang();
+        danhSach();
         int khach_hang_can_sua = getNumber("Nhap ma khach hang can sua: ");
         while(!existKhachHang(khach_hang_can_sua)){
             khach_hang_can_sua = getNumber("Sai ma khach hang! Vui long nhap lai: ");
@@ -67,7 +67,7 @@ void QLKhachHang::suaKhachHang() {
         KhachHang* kh;
         kh = loadKhachHang(khach_hang_can_sua);
         do {
-            kh->hienThiThongTin();
+            kh->hienThi();
             cout <<"\n Chon truong muon sua:\n"
                     "1.Ten khach hang\n"
                     "2.Dia chi\n"
@@ -108,7 +108,7 @@ void QLKhachHang::suaKhachHang() {
 
 
 
-void QLKhachHang::dsKhachHang() {
+void QLKhachHang::danhSach() {
     try {
         tabulate::Table khachhangTable;
         cout << "DANH SACH KHACH HANG"<<endl;
@@ -132,7 +132,7 @@ void QLKhachHang::dsKhachHang() {
 }
 
 KhachHang *QLKhachHang::loadKhachHang(int maKh) {
-    KhachHang* khachhang = NULL;
+    KhachHang* khachhang = nullptr;
     ss.str("");
     ss << "SELECT * FROM khach_hang WHERE ma_kh=" << maKh;
     std::string query = ss.str();
@@ -140,7 +140,7 @@ KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     MYSQL_RES* res = db.exec_query(query.c_str());
     MYSQL_ROW row = mysql_fetch_row(res);
 
-    if (row != NULL) {
+    if (row != nullptr) {
         khachhang = new KhachHang();
         khachhang->setMaKh(maKh);
         khachhang->setTenKh(row[1]);
@@ -153,7 +153,7 @@ KhachHang *QLKhachHang::loadKhachHang(int maKh) {
     return khachhang;
 }
 KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
-    KhachHang* khachhang = NULL;
+    KhachHang* khachhang = nullptr;
     ss.str("");
     ss << "SELECT * FROM khach_hang WHERE cccd = '" << cccd <<"'";
     std::string query = ss.str();
@@ -175,14 +175,14 @@ KhachHang *QLKhachHang::loadKhachHang(std::string cccd) {
     return khachhang;
 }
 void QLKhachHang:: xemKhachHang(){
-    dsKhachHang();
+    danhSach();
     int khach_hang_can_xem = getNumber("Nhap ma khach hang muon xem ");
     while(!existKhachHang(khach_hang_can_xem)){
         khach_hang_can_xem = getNumber("Sai ma khach hang! Vui long nhap lai: ");
     }
     KhachHang* kh;
     kh = loadKhachHang(khach_hang_can_xem);
-    kh->hienThiThongTin();
+    kh->hienThi();
 
 }
 void QLKhachHang::capNhatKhachHang(KhachHang *kh) {

@@ -5,11 +5,12 @@
 #ifndef CPP_QLKS_DATPHONG_H
 #define CPP_QLKS_DATPHONG_H
 #include <iostream>
+#include "../DoiTuong/DoiTuong.h"
 #include "../KhachHang/KhachHang.h"
 #include "../Phong/Phong.h"
 #include "../Utils/Utils.h"
 
-class DatPhong {
+class DatPhong: public DoiTuong{
 private:
     int ma_dat_phong;
     std::string thoi_gian_dat;
@@ -46,7 +47,7 @@ public:
 
     void nhap();
 
-    void hienThiThongTin();
+    void hienThi();
 
     KhachHang *getKh() const;
 

@@ -6,9 +6,10 @@
 #define CPP_QLKS_PHONG_H
 #include <iostream>
 #include "../Utils/Utils.h"
+#include "../DoiTuong/DoiTuong.h"
 
 
-class Phong {
+class Phong: public DoiTuong{
 private:
     int ma_phong;
     std::string loai_phong;
@@ -21,8 +22,7 @@ public:
 
     void nhap();
 
-
-    void hienThiThongTin();
+    void hienThi();
 
     int getMaPhong() const;
 

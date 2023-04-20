@@ -61,7 +61,7 @@ void KhachHang::setCccd(const std::string &cccd) {
     KhachHang::cccd = cccd;
 }
 
-void KhachHang::hienThiThongTin() {
+void KhachHang::hienThi() {
     std::cout << "Thong tin khach hang";
     std::cout <<"\n----------------------";
     std::cout <<"\nTen:"<<getTenKh();

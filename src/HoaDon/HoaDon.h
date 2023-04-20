@@ -26,7 +26,7 @@ public:
 
     void nhap();
 
-    void hienThiThongTin();
+    void hienThi();
 
     int getSoHd() const;
 

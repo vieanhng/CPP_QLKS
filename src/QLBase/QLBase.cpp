@@ -4,15 +4,12 @@
 
 #include "QLBase.h"
 
-void QLBase::tao() {
 
-}
+void QLBase::tao() {}
 
-void QLBase::load() {
+void QLBase::sua() {}
 
-}
+void QLBase::xoa() {}
 
-void QLBase::danhSach() {
-
-}
+void QLBase::danhSach() {}
 

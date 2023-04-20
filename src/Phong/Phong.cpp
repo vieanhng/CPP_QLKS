@@ -56,7 +56,7 @@ void Phong::setTinhTrangPhong(int tinhTrangPhong) {
     this->tinh_trang_phong = tinhTrangPhong;
 }
 
-void Phong::hienThiThongTin() {
+void Phong::hienThi() {
     std::cout << "Thong tin phong:";
     std::cout << "\n====================================\n";
     std::cout << "Ma phong: " << getMaPhong();
